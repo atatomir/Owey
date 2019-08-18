@@ -19,5 +19,23 @@ extension Friend {
 
     @NSManaged public var name: String
     @NSManaged public var picture: NSObject
+    @NSManaged public var transactions: NSSet?
+
+}
+
+// MARK: Generated accessors for transactions
+extension Friend {
+
+    @objc(addTransactionsObject:)
+    @NSManaged public func addToTransactions(_ value: Friend)
+
+    @objc(removeTransactionsObject:)
+    @NSManaged public func removeFromTransactions(_ value: Friend)
+
+    @objc(addTransactions:)
+    @NSManaged public func addToTransactions(_ values: NSSet)
+
+    @objc(removeTransactions:)
+    @NSManaged public func removeFromTransactions(_ values: NSSet)
 
 }
