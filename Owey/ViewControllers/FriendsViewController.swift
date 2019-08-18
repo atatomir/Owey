@@ -23,11 +23,6 @@ class FriendsViewController: UIViewController {
         return collectionView.frame.height
     }
     
-    let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
-    let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
-    var friendFetcher: NSFetchedResultsController<Friend>!
-    
-    
     
     // MARK: Initialization
     override func viewDidLoad() {
@@ -35,7 +30,7 @@ class FriendsViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        refetchData()
+        ModelManager.refetchData(for: .all)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,8 +40,7 @@ class FriendsViewController: UIViewController {
                 detailsVC.delegate = self
                 
                 let indexPath = collectionView.indexPath(for: sender as! UICollectionViewCell)!
-                let index = IndexPath(row: indexPath.row - 1, section: 0)
-                let friend = friendFetcher.object(at: index)
+                let friend = ModelManager.friend(indexPath.row - 1)
                 detailsVC.friend = FriendData(name: friend.name, image: friend.picture as! UIImage)
                 
             } else {
@@ -80,25 +74,6 @@ class FriendsViewController: UIViewController {
         }
     }
     
-    func refetchData() {
-        let request = Friend.fetchRequest() as NSFetchRequest<Friend>
-        let sort = NSSortDescriptor(key: "name", ascending: true)
-        request.sortDescriptors = [sort]
-        
-        friendFetcher = NSFetchedResultsController<Friend>(
-            fetchRequest: request,
-            managedObjectContext: persistentContainer.viewContext,
-            sectionNameKeyPath: nil,
-            cacheName: nil
-        )
-        
-        do {
-            try friendFetcher.performFetch()
-            print("Fetched \(friendFetcher.fetchedObjects?.count) friends")
-        } catch {
-            fatalError("Could not fetch friends")
-        }
-    }
 }
 
 // MARK: Collection View Data Source
@@ -109,7 +84,7 @@ extension FriendsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (friendFetcher.fetchedObjects?.count ?? 0) + 1
+        return ModelManager.friendCount() + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -124,9 +99,7 @@ extension FriendsViewController: UICollectionViewDataSource {
                 fatalError("Cell in FriendsCollectionView is not a FriendCell")
             }
             
-            let index = IndexPath(row: indexPath.row - 1, section: 0)
-            
-            let fetchedFriend = friendFetcher.object(at: index)
+            let fetchedFriend = ModelManager.friend(indexPath.row - 1)
             cell.friend = FriendData(name: fetchedFriend.name, image: fetchedFriend.picture as! UIImage)
             
             return cell
@@ -166,15 +139,14 @@ extension FriendsViewController: FriendDetailsViewControllerDelegate {
         
         if let selected = collectionView.indexPathsForSelectedItems, selected.count > 0 {
             
-            let index = IndexPath(row: selected[0].row - 1, section: 0)
-            let friend = friendFetcher.object(at: index)
+            let friend = ModelManager.friend(selected[0].row - 1)
             
             guard let data = friendData else {
                 // Delete an item
-                persistentContainer.viewContext.delete(friend)
-                appDelegate?.saveContext()
+                ModelManager.deleteFriend(friend)
+                ModelManager.saveContext()
                 
-                refetchData()
+                ModelManager.refetchData(for: .friend)
                 collectionView.reloadData()
                 
                 return
@@ -188,14 +160,14 @@ extension FriendsViewController: FriendDetailsViewControllerDelegate {
             guard let data = friendData else {return}
             
             // Add a new friend
-            let newFriend = Friend(entity: Friend.entity(), insertInto: persistentContainer.viewContext)
+            let newFriend = ModelManager.newFriend()
             newFriend.name = data.name
             newFriend.picture = data.image
         }
         
-        appDelegate?.saveContext()
-        
-        refetchData()
+        ModelManager.saveContext()
+        ModelManager.refetchData(for: .all)
+
         collectionView.reloadData()
     }
     
