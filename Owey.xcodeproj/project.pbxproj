@@ -8,24 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		F47819E02308135F004C8FF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47819DF2308135F004C8FF3 /* AppDelegate.swift */; };
-		F47819E22308135F004C8FF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47819E12308135F004C8FF3 /* SceneDelegate.swift */; };
-		F47819E42308135F004C8FF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47819E32308135F004C8FF3 /* ViewController.swift */; };
 		F47819E72308135F004C8FF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47819E52308135F004C8FF3 /* Main.storyboard */; };
 		F47819EA2308135F004C8FF3 /* Owey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F47819E82308135F004C8FF3 /* Owey.xcdatamodeld */; };
 		F47819EC23081360004C8FF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47819EB23081360004C8FF3 /* Assets.xcassets */; };
 		F47819EF23081360004C8FF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47819ED23081360004C8FF3 /* LaunchScreen.storyboard */; };
+		F47819F723081EBE004C8FF3 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47819F623081EBE004C8FF3 /* ColorManager.swift */; };
+		F47819FA230827C0004C8FF3 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47819F9230827C0004C8FF3 /* SummaryCell.swift */; };
+		F47819FD23082A08004C8FF3 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47819FC23082A08004C8FF3 /* FriendsViewController.swift */; };
+		F4781A00230924F7004C8FF3 /* UIView+RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47819FF230924F7004C8FF3 /* UIView+RoundedCorners.swift */; };
+		F4781A02230925C8004C8FF3 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4781A01230925C8004C8FF3 /* FriendCell.swift */; };
+		F4781A04230934D9004C8FF3 /* FriendDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4781A03230934D9004C8FF3 /* FriendDetailsViewController.swift */; };
+		F4781A0723093944004C8FF3 /* FriendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4781A0623093944004C8FF3 /* FriendData.swift */; };
+		F4781A15230952ED004C8FF3 /* Friend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4781A13230952ED004C8FF3 /* Friend+CoreDataClass.swift */; };
+		F4781A16230952ED004C8FF3 /* Friend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4781A14230952ED004C8FF3 /* Friend+CoreDataProperties.swift */; };
+		F4781A182309683C004C8FF3 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4781A172309683C004C8FF3 /* ModelManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F47819DC2308135F004C8FF3 /* Owey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47819DF2308135F004C8FF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F47819E12308135F004C8FF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F47819E32308135F004C8FF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F47819E62308135F004C8FF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F47819E92308135F004C8FF3 /* Owey.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Owey.xcdatamodel; sourceTree = "<group>"; };
 		F47819EB23081360004C8FF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F47819EE23081360004C8FF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F47819F023081360004C8FF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F47819F623081EBE004C8FF3 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		F47819F9230827C0004C8FF3 /* SummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
+		F47819FC23082A08004C8FF3 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		F47819FF230924F7004C8FF3 /* UIView+RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundedCorners.swift"; sourceTree = "<group>"; };
+		F4781A01230925C8004C8FF3 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		F4781A03230934D9004C8FF3 /* FriendDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailsViewController.swift; sourceTree = "<group>"; };
+		F4781A0623093944004C8FF3 /* FriendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendData.swift; sourceTree = "<group>"; };
+		F4781A13230952ED004C8FF3 /* Friend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F4781A14230952ED004C8FF3 /* Friend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F4781A172309683C004C8FF3 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +74,64 @@
 		F47819DE2308135F004C8FF3 /* Owey */ = {
 			isa = PBXGroup;
 			children = (
+				F4781A0C23095109004C8FF3 /* CoreData */,
+				F4781A0523093932004C8FF3 /* Model */,
+				F47819FB230829EA004C8FF3 /* ViewControllers */,
+				F47819F823082798004C8FF3 /* Cells */,
+				F47819FE230924D5004C8FF3 /* Extensions */,
 				F47819DF2308135F004C8FF3 /* AppDelegate.swift */,
-				F47819E12308135F004C8FF3 /* SceneDelegate.swift */,
-				F47819E32308135F004C8FF3 /* ViewController.swift */,
 				F47819E52308135F004C8FF3 /* Main.storyboard */,
 				F47819EB23081360004C8FF3 /* Assets.xcassets */,
 				F47819ED23081360004C8FF3 /* LaunchScreen.storyboard */,
 				F47819F023081360004C8FF3 /* Info.plist */,
 				F47819E82308135F004C8FF3 /* Owey.xcdatamodeld */,
+				F47819F623081EBE004C8FF3 /* ColorManager.swift */,
 			);
 			path = Owey;
+			sourceTree = "<group>";
+		};
+		F47819F823082798004C8FF3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F47819F9230827C0004C8FF3 /* SummaryCell.swift */,
+				F4781A01230925C8004C8FF3 /* FriendCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F47819FB230829EA004C8FF3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F47819FC23082A08004C8FF3 /* FriendsViewController.swift */,
+				F4781A03230934D9004C8FF3 /* FriendDetailsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F47819FE230924D5004C8FF3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F47819FF230924F7004C8FF3 /* UIView+RoundedCorners.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F4781A0523093932004C8FF3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4781A0623093944004C8FF3 /* FriendData.swift */,
+				F4781A172309683C004C8FF3 /* ModelManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F4781A0C23095109004C8FF3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F4781A13230952ED004C8FF3 /* Friend+CoreDataClass.swift */,
+				F4781A14230952ED004C8FF3 /* Friend+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,10 +205,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F47819E42308135F004C8FF3 /* ViewController.swift in Sources */,
+				F4781A02230925C8004C8FF3 /* FriendCell.swift in Sources */,
+				F4781A15230952ED004C8FF3 /* Friend+CoreDataClass.swift in Sources */,
+				F4781A16230952ED004C8FF3 /* Friend+CoreDataProperties.swift in Sources */,
 				F47819EA2308135F004C8FF3 /* Owey.xcdatamodeld in Sources */,
 				F47819E02308135F004C8FF3 /* AppDelegate.swift in Sources */,
-				F47819E22308135F004C8FF3 /* SceneDelegate.swift in Sources */,
+				F4781A182309683C004C8FF3 /* ModelManager.swift in Sources */,
+				F4781A04230934D9004C8FF3 /* FriendDetailsViewController.swift in Sources */,
+				F4781A00230924F7004C8FF3 /* UIView+RoundedCorners.swift in Sources */,
+				F47819F723081EBE004C8FF3 /* ColorManager.swift in Sources */,
+				F47819FD23082A08004C8FF3 /* FriendsViewController.swift in Sources */,
+				F4781A0723093944004C8FF3 /* FriendData.swift in Sources */,
+				F47819FA230827C0004C8FF3 /* SummaryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +292,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +346,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -291,6 +363,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3G4XG28SQ;
 				INFOPLIST_FILE = Owey/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +382,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3G4XG28SQ;
 				INFOPLIST_FILE = Owey/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
