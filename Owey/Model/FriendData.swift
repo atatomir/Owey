@@ -12,4 +12,14 @@ import UIKit
 struct FriendData {
     var name: String
     var image: UIImage
+    
+    // Creates a NEW Friend 
+    func toFriend() -> Friend {
+        let friend = ModelManager.newFriend()
+        
+        friend.name = name
+        friend.picture = image
+        
+        return friend
+    }
 }

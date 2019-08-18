@@ -22,6 +22,8 @@
 		F4781A15230952ED004C8FF3 /* Friend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4781A13230952ED004C8FF3 /* Friend+CoreDataClass.swift */; };
 		F4781A16230952ED004C8FF3 /* Friend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4781A14230952ED004C8FF3 /* Friend+CoreDataProperties.swift */; };
 		F4781A182309683C004C8FF3 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4781A172309683C004C8FF3 /* ModelManager.swift */; };
+		F4B224DB2309E974003E5611 /* UIRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B224DA2309E974003E5611 /* UIRoundedView.swift */; };
+		F4B224DE2309E9BF003E5611 /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4B224DC2309E9BF003E5611 /* Transaction.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		F4781A13230952ED004C8FF3 /* Friend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F4781A14230952ED004C8FF3 /* Friend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F4781A172309683C004C8FF3 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		F4B224DA2309E974003E5611 /* UIRoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRoundedView.swift; sourceTree = "<group>"; };
+		F4B224DD2309E9BF003E5611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Transaction.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 				F47819F823082798004C8FF3 /* Cells */,
 				F47819FE230924D5004C8FF3 /* Extensions */,
 				F47819DF2308135F004C8FF3 /* AppDelegate.swift */,
+				F4B224DC2309E9BF003E5611 /* Transaction.storyboard */,
 				F47819E52308135F004C8FF3 /* Main.storyboard */,
 				F47819EB23081360004C8FF3 /* Assets.xcassets */,
 				F47819ED23081360004C8FF3 /* LaunchScreen.storyboard */,
@@ -111,6 +116,7 @@
 		F47819FE230924D5004C8FF3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F4B224DA2309E974003E5611 /* UIRoundedView.swift */,
 				F47819FF230924F7004C8FF3 /* UIView+RoundedCorners.swift */,
 			);
 			path = Extensions;
@@ -195,6 +201,7 @@
 				F47819EF23081360004C8FF3 /* LaunchScreen.storyboard in Resources */,
 				F47819EC23081360004C8FF3 /* Assets.xcassets in Resources */,
 				F47819E72308135F004C8FF3 /* Main.storyboard in Resources */,
+				F4B224DE2309E9BF003E5611 /* Transaction.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +219,7 @@
 				F47819E02308135F004C8FF3 /* AppDelegate.swift in Sources */,
 				F4781A182309683C004C8FF3 /* ModelManager.swift in Sources */,
 				F4781A04230934D9004C8FF3 /* FriendDetailsViewController.swift in Sources */,
+				F4B224DB2309E974003E5611 /* UIRoundedView.swift in Sources */,
 				F4781A00230924F7004C8FF3 /* UIView+RoundedCorners.swift in Sources */,
 				F47819F723081EBE004C8FF3 /* ColorManager.swift in Sources */,
 				F47819FD23082A08004C8FF3 /* FriendsViewController.swift in Sources */,
@@ -237,6 +245,14 @@
 				F47819EE23081360004C8FF3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F4B224DC2309E9BF003E5611 /* Transaction.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4B224DD2309E9BF003E5611 /* Base */,
+			);
+			name = Transaction.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

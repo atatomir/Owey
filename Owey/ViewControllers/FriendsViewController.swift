@@ -62,8 +62,18 @@ class FriendsViewController: UIViewController {
     // MARK: Actions
     @IBAction func newFriend(_ sender: UIBarButtonItem) {
         deselectAllItems()
+        performSegue(withIdentifier: "NewFriend", sender: self)
     }
     
+    @IBAction func handleGiveMoney(_ sender: UIButton) {
+        // TODO
+        performSegue(withIdentifier: "NewTransaction", sender: sender)
+    }
+    
+    @IBAction func handleTakeMoney(_ sender: UIButton) {
+        // TODO
+        performSegue(withIdentifier: "NewTransaction", sender: sender)
+    }
     
     // MARK: Private Methods
     func deselectAllItems() {
@@ -100,7 +110,7 @@ extension FriendsViewController: UICollectionViewDataSource {
             }
             
             let fetchedFriend = ModelManager.friend(indexPath.row - 1)
-            cell.friend = FriendData(name: fetchedFriend.name, image: fetchedFriend.picture as! UIImage)
+            cell.friend = fetchedFriend.toFriendData()
             
             return cell
         }
@@ -134,8 +144,7 @@ extension FriendsViewController: UICollectionViewDelegateFlowLayout {
 
 extension FriendsViewController: FriendDetailsViewControllerDelegate {
     
-    func friendDetails(didReturnWith friendData: FriendData?) {
-        
+    func friendDetails(didEndEditing friendData: FriendData?) {
         
         if let selected = collectionView.indexPathsForSelectedItems, selected.count > 0 {
             
@@ -160,9 +169,7 @@ extension FriendsViewController: FriendDetailsViewControllerDelegate {
             guard let data = friendData else {return}
             
             // Add a new friend
-            let newFriend = ModelManager.newFriend()
-            newFriend.name = data.name
-            newFriend.picture = data.image
+            _ = data.toFriend()
         }
         
         ModelManager.saveContext()

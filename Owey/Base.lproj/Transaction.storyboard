@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dFp-YG-fWl">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Transaction-->
+        <scene sceneID="Edt-UT-ulS">
+            <objects>
+                <viewController id="dFp-YG-fWl" customClass="TransactionViewController" customModule="Owey" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bmX-kc-kbn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zfx-bg-aQA">
+                                <rect key="frame" x="10" y="98" width="394" height="384"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="1000" image="Ricky" translatesAutoresizingMaskIntoConstraints="NO" id="Iu9-yc-fdK" customClass="RoundedImageView" customModule="Owey" customModuleProvider="target">
+                                        <rect key="frame" x="119.5" y="0.0" width="155" height="155"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Iu9-yc-fdK" secondAttribute="height" multiplier="1:1" id="y1T-kC-zkl"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="to John Smith" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktn-Zg-lrX">
+                                        <rect key="frame" x="118.5" y="160" width="157" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yZv-SR-c04">
+                                        <rect key="frame" x="0.0" y="195" width="394" height="150"/>
+                                        <subviews>
+                                            <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="dNx-DZ-o63">
+                                                <rect key="frame" x="0.0" y="0.0" width="79" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="hrU-EL-pfg"/>
+                                                </constraints>
+                                            </pickerView>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0,00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HoY-8h-zle">
+                                                <rect key="frame" x="89" y="0.0" width="305" height="150"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="dNx-DZ-o63" firstAttribute="width" secondItem="yZv-SR-c04" secondAttribute="width" multiplier="2/10" id="WwR-xk-UBk"/>
+                                        </constraints>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Note..." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IVa-VX-0qi">
+                                        <rect key="frame" x="0.0" y="350" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="IVa-VX-0qi" secondAttribute="trailing" id="UDS-3q-6re"/>
+                                    <constraint firstItem="IVa-VX-0qi" firstAttribute="leading" secondItem="zfx-bg-aQA" secondAttribute="leading" id="VPG-Lh-AI5"/>
+                                    <constraint firstAttribute="bottom" secondItem="IVa-VX-0qi" secondAttribute="bottom" id="VrI-BH-2M6"/>
+                                    <constraint firstItem="yZv-SR-c04" firstAttribute="width" secondItem="zfx-bg-aQA" secondAttribute="width" id="bSE-pB-oUC"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zfx-bg-aQA" secondAttribute="trailing" constant="10" id="FvM-xc-cEd"/>
+                            <constraint firstItem="Iu9-yc-fdK" firstAttribute="height" secondItem="kWG-t0-L0t" secondAttribute="height" multiplier="0.2" id="S4o-Sc-CuL"/>
+                            <constraint firstItem="zfx-bg-aQA" firstAttribute="leading" secondItem="kWG-t0-L0t" secondAttribute="leading" constant="10" id="WAC-K8-UWn"/>
+                            <constraint firstItem="zfx-bg-aQA" firstAttribute="top" secondItem="kWG-t0-L0t" secondAttribute="top" constant="10" id="Y47-WP-RMC"/>
+                            <constraint firstItem="kWG-t0-L0t" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zfx-bg-aQA" secondAttribute="bottom" id="fYn-Sq-TdM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kWG-t0-L0t"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Transaction" largeTitleDisplayMode="never" id="fK2-gJ-MHz">
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="plain" id="xsf-nR-yzP">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="done:" destination="dFp-YG-fWl" id="gdS-pp-rUj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="currencyPicker" destination="dNx-DZ-o63" id="mCs-rm-wWv"/>
+                        <outlet property="nameLabel" destination="ktn-Zg-lrX" id="ayQ-nL-T6p"/>
+                        <outlet property="noteTextField" destination="IVa-VX-0qi" id="XdT-ti-B3P"/>
+                        <outlet property="picture" destination="Iu9-yc-fdK" id="fHi-od-tgO"/>
+                        <outlet property="valueField" destination="HoY-8h-zle" id="2Nq-GP-GsL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tjr-IS-w1f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1715.9420289855075" y="-138.61607142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Ricky" width="115" height="115"/>
+    </resources>
+</document>

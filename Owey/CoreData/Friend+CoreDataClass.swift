@@ -9,8 +9,13 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 @objc(Friend)
 public class Friend: NSManagedObject {
-
+    
+    // Creates a FriendData with these values
+    func toFriendData() -> FriendData {
+        return FriendData(name: self.name, image: self.picture as! UIImage)
+    }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FriendDetailsViewControllerDelegate {
-    func friendDetails(didReturnWith: FriendData?) 
+    func friendDetails(didEndEditing: FriendData?)
 }
 
 class FriendDetailsViewController: UIViewController {
@@ -51,12 +51,12 @@ class FriendDetailsViewController: UIViewController {
     
     @IBAction func done(_ sender: Any) {
         friend = FriendData(name: nameLabel.text!, image: profilePicture.image!)
-        delegate?.friendDetails(didReturnWith: friend)
+        delegate?.friendDetails(didEndEditing: friend)
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction func removeFriend(_ sender: Any) {
-        delegate?.friendDetails(didReturnWith: nil)
+        delegate?.friendDetails(didEndEditing: nil)
         navigationController?.popViewController(animated: true)
     }
     

@@ -30,12 +30,12 @@ class FriendCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.roundedCorners()
+        contentView.setCornerRadius()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        contentView.roundedCorners()
+        contentView.setCornerRadius()
     }
     
     // MARK: Private methods
