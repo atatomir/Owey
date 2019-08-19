@@ -42,7 +42,8 @@ class FriendsViewController: UIViewController {
                 
                 let indexPath = collectionView.indexPath(for: sender as! UICollectionViewCell)!
                 let friend = ModelManager.friend(indexPath.row - 1)
-                detailsVC.friend = FriendData(name: friend.name, image: friend.picture as! UIImage)
+                detailsVC.friend = friend.toFriendData()
+                detailsVC.refFriend = friend
                 
             } else {
                 fatalError("Segue destination is not FriendDetailsViewController")

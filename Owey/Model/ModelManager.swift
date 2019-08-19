@@ -22,7 +22,9 @@ class ModelManager {
     static let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
     
     static var friendFetcher: NSFetchedResultsController<Friend>!
+    
     static var transactionFetcher: NSFetchedResultsController<Transaction>!
+    static var transitionsForFriend: Friend?
     
     
     
@@ -56,6 +58,13 @@ class ModelManager {
             let request = Transaction.fetchRequest() as NSFetchRequest<Transaction>
             let sort = NSSortDescriptor(key: "date", ascending: false)
             request.sortDescriptors = [sort]
+            
+            if let requiredFriend = transitionsForFriend {
+                let predicate = NSPredicate(format: "who = %@", requiredFriend)
+                request.predicate = predicate
+            } else {
+                request.predicate = nil
+            }
             
             transactionFetcher = NSFetchedResultsController<Transaction>(
                 fetchRequest: request,
@@ -107,5 +116,9 @@ extension ModelManager {
     
     class func transactionCount() -> Int {
         return transactionFetcher.fetchedObjects?.count ?? 0
+    }
+    
+    class func deleteTransaction(_ transaction: Transaction) {
+        persistentContainer.viewContext.delete(transaction)
     }
 }

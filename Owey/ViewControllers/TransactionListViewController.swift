@@ -14,6 +14,8 @@ class TransactionListViewController: UITableViewController {
     var totalHeight: CGFloat {
         return tableView.frame.height
     }
+    
+    var forFriend: Friend?
 
     // MARK: Initialization
     override func viewDidLoad() {
@@ -22,6 +24,7 @@ class TransactionListViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        ModelManager.transitionsForFriend = forFriend
         ModelManager.refetchData(for: .transaction)
         tableView.reloadData()
     }

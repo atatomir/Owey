@@ -7,6 +7,7 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="iOS 13.0 system colors" minToolsVersion="11.0"/>
     </dependencies>
     <scenes>
         <!--History-->
@@ -270,79 +271,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="4hR-XA-2VB">
-                                <rect key="frame" x="10" y="10" width="394" height="168.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uhv-s0-xSq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" image="Ricky" translatesAutoresizingMaskIntoConstraints="NO" id="Nlm-JH-soy" customClass="RoundedImageView" customModule="Owey" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="168.5" height="168.5"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Nlm-JH-soy" secondAttribute="height" multiplier="1:1" id="Izv-tO-CbV"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="circleMask" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="25"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="SXz-ha-EI9" appends="YES" id="LV9-Tj-ef7"/>
-                                        </connections>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Kc6-mB-cqa">
-                                        <rect key="frame" x="185.5" y="0.0" width="208.5" height="168.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="4hR-XA-2VB">
+                                        <rect key="frame" x="5" y="0.0" width="404" height="134.5"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8C7-Yj-pa7">
-                                                <rect key="frame" x="55.5" y="0.0" width="97" height="39.5"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rao-eB-oWh">
-                                                <rect key="frame" x="44.5" y="48.5" width="119" height="120"/>
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" image="Ricky" translatesAutoresizingMaskIntoConstraints="NO" id="Nlm-JH-soy" customClass="RoundedImageView" customModule="Owey" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="134.5" height="134.5"/>
+                                                <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Nlm-JH-soy" secondAttribute="height" multiplier="1:1" id="Izv-tO-CbV"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="circleMask" value="NO"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="SXz-ha-EI9" appends="YES" id="LV9-Tj-ef7"/>
+                                                </connections>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Kc6-mB-cqa">
+                                                <rect key="frame" x="151.5" y="0.0" width="252.5" height="134.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You owe $10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrl-ax-gMd">
-                                                        <rect key="frame" x="21" y="0.0" width="77" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ricky owes you $10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x92-g2-msx">
-                                                        <rect key="frame" x="0.0" y="30" width="119" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settled up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rj-qr-0Y4">
-                                                        <rect key="frame" x="28.5" y="60" width="62.5" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHF-1Z-GUd">
-                                                        <rect key="frame" x="8.5" y="90" width="102" height="30"/>
-                                                        <state key="normal" title="Remove Friend"/>
-                                                        <connections>
-                                                            <action selector="removeFriend:" destination="VeT-nb-zQb" eventType="touchUpInside" id="VhZ-gF-f7F"/>
-                                                        </connections>
-                                                    </button>
+                                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8C7-Yj-pa7">
+                                                        <rect key="frame" x="78" y="0.0" width="97" height="39.5"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rao-eB-oWh">
+                                                        <rect key="frame" x="67" y="48.5" width="119" height="86"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You owe $10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrl-ax-gMd">
+                                                                <rect key="frame" x="21" y="0.0" width="77" height="21.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ricky owes you $10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x92-g2-msx">
+                                                                <rect key="frame" x="0.0" y="21.5" width="119" height="21.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settled up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rj-qr-0Y4">
+                                                                <rect key="frame" x="28" y="43" width="62.5" height="21.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHF-1Z-GUd">
+                                                                <rect key="frame" x="8.5" y="64.5" width="102" height="21.5"/>
+                                                                <state key="normal" title="Remove Friend"/>
+                                                                <connections>
+                                                                    <action selector="removeFriend:" destination="VeT-nb-zQb" eventType="touchUpInside" id="VhZ-gF-f7F"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Kc6-mB-cqa" firstAttribute="height" secondItem="Nlm-JH-soy" secondAttribute="height" id="1eH-i1-62E"/>
+                                            <constraint firstItem="Nlm-JH-soy" firstAttribute="height" secondItem="4hR-XA-2VB" secondAttribute="height" id="Lkn-Lg-w13"/>
+                                        </constraints>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMU-rn-TVn">
+                                        <rect key="frame" x="0.0" y="154.5" width="414" height="518.5"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="systemPinkColor"/>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Kc6-mB-cqa" firstAttribute="height" secondItem="Nlm-JH-soy" secondAttribute="height" id="1eH-i1-62E"/>
-                                    <constraint firstItem="Nlm-JH-soy" firstAttribute="height" secondItem="4hR-XA-2VB" secondAttribute="height" id="Lkn-Lg-w13"/>
+                                    <constraint firstAttribute="trailing" secondItem="cMU-rn-TVn" secondAttribute="trailing" id="4Y7-Wg-dCV"/>
+                                    <constraint firstAttribute="trailing" secondItem="4hR-XA-2VB" secondAttribute="trailing" constant="5" id="Cu9-qu-T4Z"/>
+                                    <constraint firstItem="4hR-XA-2VB" firstAttribute="top" secondItem="Uhv-s0-xSq" secondAttribute="top" constant="5" id="E9z-5F-Qrv"/>
+                                    <constraint firstItem="4hR-XA-2VB" firstAttribute="leading" secondItem="Uhv-s0-xSq" secondAttribute="leading" constant="5" id="WCd-Pn-Xan"/>
+                                    <constraint firstItem="cMU-rn-TVn" firstAttribute="leading" secondItem="Uhv-s0-xSq" secondAttribute="leading" id="b3T-WZ-yaU"/>
+                                    <constraint firstAttribute="bottom" secondItem="cMU-rn-TVn" secondAttribute="bottom" id="xuu-BJ-g2s"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="4hR-XA-2VB" firstAttribute="top" secondItem="VrE-37-DiB" secondAttribute="top" constant="10" id="7ZZ-tv-8dN"/>
-                            <constraint firstItem="VrE-37-DiB" firstAttribute="trailing" secondItem="4hR-XA-2VB" secondAttribute="trailing" constant="10" id="IQJ-lD-nac"/>
-                            <constraint firstItem="4hR-XA-2VB" firstAttribute="leading" secondItem="VrE-37-DiB" secondAttribute="leading" constant="10" id="Ysi-On-yxd"/>
-                            <constraint firstItem="4hR-XA-2VB" firstAttribute="height" secondItem="VrE-37-DiB" secondAttribute="height" multiplier="1/4" id="me9-2x-5hk"/>
+                            <constraint firstItem="Uhv-s0-xSq" firstAttribute="leading" secondItem="VrE-37-DiB" secondAttribute="leading" id="7yk-3T-et4"/>
+                            <constraint firstItem="4hR-XA-2VB" firstAttribute="height" secondItem="VrE-37-DiB" secondAttribute="height" multiplier="0.2" id="K8i-fT-Umi"/>
+                            <constraint firstItem="Uhv-s0-xSq" firstAttribute="top" secondItem="VrE-37-DiB" secondAttribute="top" id="SlH-jq-wEf"/>
+                            <constraint firstItem="Uhv-s0-xSq" firstAttribute="bottom" secondItem="VrE-37-DiB" secondAttribute="bottom" id="UCO-jN-r3B"/>
+                            <constraint firstItem="Uhv-s0-xSq" firstAttribute="trailing" secondItem="VrE-37-DiB" secondAttribute="trailing" id="zhH-kL-p8S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VrE-37-DiB"/>
                     </view>
@@ -360,6 +379,7 @@
                         <outlet property="owingLabel" destination="lrl-ax-gMd" id="fiO-k6-hYn"/>
                         <outlet property="profilePicture" destination="Nlm-JH-soy" id="TkC-Rk-nCo"/>
                         <outlet property="settledLabel" destination="5Rj-qr-0Y4" id="BGN-f9-e8d"/>
+                        <outlet property="tableViewContainer" destination="cMU-rn-TVn" id="cnD-DD-K46"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qs-xA-0z0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

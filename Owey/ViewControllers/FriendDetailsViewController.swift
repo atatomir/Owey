@@ -12,7 +12,7 @@ protocol FriendDetailsViewControllerDelegate {
     func friendDetails(didEndEditing: FriendData?)
 }
 
-/* Initialize this View Controller by providing a FriendData.
+/* Initialize this View Controller by providing a FriendData(and a Friend if you want history details).
  * Result is returned via the delegate's frunction friendDetailsDidEndEditing
  */
 class FriendDetailsViewController: UIViewController {
@@ -23,19 +23,25 @@ class FriendDetailsViewController: UIViewController {
     @IBOutlet var owingLabel: UILabel!
     @IBOutlet var owedLabel: UILabel!
     @IBOutlet var settledLabel: UILabel!
+    @IBOutlet var tableViewContainer: UIView!
     
     // MARK: Properties
     var friend: FriendData?
+    var refFriend: Friend?
     var imagePicker = UIImagePickerController()
     var delegate: FriendDetailsViewControllerDelegate?
+    
+    var tableViewController: UITableViewController!
+    var tableView: UITableView!
     
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navigationItem.largeTitleDisplayMode = .never
         nameLabel.delegate = self
         
+        // Editing or Adding a friend?
         if let friend = friend {
             profilePicture.image = friend.image
             nameLabel.text = friend.name
@@ -47,7 +53,24 @@ class FriendDetailsViewController: UIViewController {
             navigationItem.title = "Name"
             hideLabels()
         }
+        
+        // Initialize history
+        if let refFriend = refFriend {
+            let storyboard = UIStoryboard(name: "Transaction", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "TransactionList") as! TransactionListViewController
+            
+            tableViewController = controller
+            tableView = controller.view as? UITableView
+            
+            self.addChild(controller)
+            controller.didMove(toParent: self)
+            controller.forFriend = refFriend
+            
+            self.tableViewContainer.addSubview(tableView)
+            tableView.frame = CGRect(x: 0, y: 0, width: tableViewContainer.frame.width, height: tableViewContainer.frame.height)
+        }
     }
+    
     
     
     //MARK: Actions
@@ -81,7 +104,7 @@ class FriendDetailsViewController: UIViewController {
         
         // TODO: Hide or show labels
     }
-
+    
     private func hideLabels() {
         owingLabel.isHidden = true
         owedLabel.isHidden = true
@@ -114,7 +137,7 @@ extension FriendDetailsViewController: UIImagePickerControllerDelegate, UINaviga
         guard let selectedImage = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
-    
+        
         profilePicture.image = selectedImage
         picker.dismiss(animated: true, completion: nil)
     }

@@ -26,6 +26,7 @@ class HistoryViewController: UIViewController {
         controller.didMove(toParent: self)
         
         self.view.addSubview(tableView)
+        tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
     }
     
 }
