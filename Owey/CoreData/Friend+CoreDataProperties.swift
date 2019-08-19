@@ -19,7 +19,7 @@ extension Friend {
 
     @NSManaged public var name: String
     @NSManaged public var picture: NSObject
-    @NSManaged public var transactions: NSSet?
+    @NSManaged public var transactions: NSSet
 
 }
 

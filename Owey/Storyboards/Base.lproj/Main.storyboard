@@ -175,7 +175,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="iSB-YE-fHf">
                                                                     <rect key="frame" x="0.0" y="0.0" width="61" height="81"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vkg-Pv-BW5">
+                                                                        <button opaque="NO" tag="11" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vkg-Pv-BW5">
                                                                             <rect key="frame" x="0.0" y="0.0" width="61" height="61"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="vkg-Pv-BW5" secondAttribute="height" multiplier="1:1" id="eD7-SY-Xtt"/>
@@ -196,7 +196,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="U0Y-ug-bdE">
                                                                     <rect key="frame" x="81" y="0.0" width="61.5" height="81"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8z-Hm-XGL">
+                                                                        <button opaque="NO" tag="12" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8z-Hm-XGL">
                                                                             <rect key="frame" x="0.0" y="0.0" width="61.5" height="61"/>
                                                                             <state key="normal" backgroundImage="Take"/>
                                                                             <connections>
@@ -468,7 +468,7 @@
         <image name="Friends Icon" width="22" height="25"/>
         <image name="Give" width="38" height="38"/>
         <image name="History Icon" width="26" height="25"/>
-        <image name="Ricky" width="58" height="58"/>
+        <image name="Ricky" width="115" height="115"/>
         <image name="Take" width="38" height="38"/>
     </resources>
     <inferredMetricsTieBreakers>

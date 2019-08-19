@@ -12,6 +12,9 @@ protocol FriendDetailsViewControllerDelegate {
     func friendDetails(didEndEditing: FriendData?)
 }
 
+/* Initialize this View Controller by providing a FriendData.
+ * Result is returned via the delegate's frunction friendDetailsDidEndEditing
+ */
 class FriendDetailsViewController: UIViewController {
     
     // MARK: Outlets

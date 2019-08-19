@@ -9,15 +9,13 @@
 import UIKit
 
 protocol TransactionViewControllerDelegate {
-    func transactionView(didEndEditing: CurrencyValue, note: String)
+    func transactionView(didEndEditing: TransactionData)
 }
 
+/* Initialize this view controller by providing a FriendData and a transactionData
+ * Result is given back via the delegate's function transactionViewDidEndEditing
+ */
 class TransactionViewController: UIViewController {
-    
-    enum Kind: String {
-        case to = "To"
-        case from = "From"
-    }
     
     // MARK: Outlets
     @IBOutlet var valueField: UITextField!
@@ -27,12 +25,12 @@ class TransactionViewController: UIViewController {
     @IBOutlet var noteTextField: UITextField!
     
     // MARK: Properties
+
+    var friend: FriendData!
+    var transactionData: TransactionData!
     
-    var type: Kind = .to { didSet { initializeFields() } }
-    var friend: FriendData? { didSet { initializeFields() } }
+    private var pickedCurrency: Currency = Currency.allCases[0]
     var delegate: TransactionViewControllerDelegate?
-    var pickedCurrency: Currency = Currency.allCases[0]
-    
     
     // MARK: Initialization
     override func viewDidLoad() {
@@ -40,22 +38,38 @@ class TransactionViewController: UIViewController {
         valueField.delegate = self
         currencyPicker.dataSource = self
         currencyPicker.delegate = self
-    }
-    
-    // MARK: Private methods
-    private func initializeFields() {
-        if let friend = friend {
-            picture.image = friend.image
-            nameLabel.text = type.rawValue
-        }
+        initializeFields()
     }
     
     // MARK: Actions
     @IBAction func done(_ sender: UIBarButtonItem) {
         let value = ((valueField.text! as NSString).floatValue) as Float
         
-        delegate?.transactionView(didEndEditing: CurrencyValue(currency: pickedCurrency, value: value), note: noteTextField.text ?? "default")
+        transactionData = TransactionData(
+            currency: pickedCurrency,
+            value: value, note:
+            noteTextField.text!,
+            date: transactionData.date,
+            kind: transactionData.kind
+        )
+        
+        delegate?.transactionView(didEndEditing: transactionData)
         navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: Private methods
+    private func initializeFields() {
+        if let friend = friend {
+            picture.image = friend.image
+            nameLabel.text = transactionData.kind.rawValue + " " + friend.name
+            valueField.text =  String(transactionData.value)
+            currencyPicker.selectRow(
+                Currency.getIndex(transactionData.currency),
+                inComponent: 0,
+                animated: true
+            )
+            noteTextField.text = transactionData.note
+        }
     }
 }
 
@@ -73,7 +87,7 @@ extension TransactionViewController: UITextFieldDelegate {
         if digits.count + commas.count != modText.count {return false}
         if commas.count > 1 {return false}
         if postDigits.count > 3 {return false}
-        if digits.count > 9 || digits.count < 1 {return false}
+        if digits.count > 9 {return false}
         
         return true
     }

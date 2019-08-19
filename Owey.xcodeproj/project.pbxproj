@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4154B3E230A7AB5005C163C /* TransactionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4154B3D230A7AB5005C163C /* TransactionData.swift */; };
 		F47819E02308135F004C8FF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47819DF2308135F004C8FF3 /* AppDelegate.swift */; };
 		F47819E72308135F004C8FF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47819E52308135F004C8FF3 /* Main.storyboard */; };
 		F47819EA2308135F004C8FF3 /* Owey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F47819E82308135F004C8FF3 /* Owey.xcdatamodeld */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F4154B3D230A7AB5005C163C /* TransactionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionData.swift; sourceTree = "<group>"; };
 		F47819DC2308135F004C8FF3 /* Owey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47819DF2308135F004C8FF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47819E62308135F004C8FF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,7 +99,6 @@
 				F47819ED23081360004C8FF3 /* LaunchScreen.storyboard */,
 				F47819F023081360004C8FF3 /* Info.plist */,
 				F47819E82308135F004C8FF3 /* Owey.xcdatamodeld */,
-				F47819F623081EBE004C8FF3 /* ColorManager.swift */,
 			);
 			path = Owey;
 			sourceTree = "<group>";
@@ -114,9 +115,9 @@
 		F47819FB230829EA004C8FF3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F4B224E62309EC35003E5611 /* TransactionViewController.swift */,
 				F47819FC23082A08004C8FF3 /* FriendsViewController.swift */,
 				F4781A03230934D9004C8FF3 /* FriendDetailsViewController.swift */,
+				F4B224E62309EC35003E5611 /* TransactionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -133,9 +134,11 @@
 		F4781A0523093932004C8FF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F4B224E82309EC4F003E5611 /* Currency.swift */,
 				F4781A0623093944004C8FF3 /* FriendData.swift */,
+				F4154B3D230A7AB5005C163C /* TransactionData.swift */,
+				F4B224E82309EC4F003E5611 /* Currency.swift */,
 				F4781A172309683C004C8FF3 /* ModelManager.swift */,
+				F47819F623081EBE004C8FF3 /* ColorManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,8 +157,8 @@
 		F4B224E52309EBB1003E5611 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				F4B224DC2309E9BF003E5611 /* Transaction.storyboard */,
 				F47819E52308135F004C8FF3 /* Main.storyboard */,
+				F4B224DC2309E9BF003E5611 /* Transaction.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				F4781A15230952ED004C8FF3 /* Friend+CoreDataClass.swift in Sources */,
 				F4781A16230952ED004C8FF3 /* Friend+CoreDataProperties.swift in Sources */,
 				F47819EA2308135F004C8FF3 /* Owey.xcdatamodeld in Sources */,
+				F4154B3E230A7AB5005C163C /* TransactionData.swift in Sources */,
 				F47819E02308135F004C8FF3 /* AppDelegate.swift in Sources */,
 				F4781A182309683C004C8FF3 /* ModelManager.swift in Sources */,
 				F4781A04230934D9004C8FF3 /* FriendDetailsViewController.swift in Sources */,

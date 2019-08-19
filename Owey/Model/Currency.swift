@@ -14,6 +14,10 @@ enum Currency: String, CaseIterable {
     case USD = "US$"
     case EUR = "€"
     case GBP = "£"
+    
+    static func getIndex(_ currency: Currency) -> Int {
+        return Currency.allCases.firstIndex(of: currency)!
+    }
 }
 
 struct CurrencyValue {

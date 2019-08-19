@@ -36,6 +36,7 @@ class FriendsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "ShowFriendDetails":
+            // The cell must be selected prior to preparing for segure
             if let detailsVC = segue.destination as? FriendDetailsViewController {
                 detailsVC.delegate = self
                 
@@ -53,6 +54,26 @@ class FriendsViewController: UIViewController {
             } else {
                 fatalError("Segue destination is not FriendDetailsViewController")
             }
+        
+        case "NewTransaction":
+            /* The cell must be selected prior to preparing for segue.
+             * Buttons have tags to be distinguishable. */
+            if let transactionVC = segue.destination as? TransactionViewController {
+                let selected = collectionView.indexPathsForSelectedItems![0]
+                let friend = ModelManager.friend(selected.row - 1)
+                
+                transactionVC.delegate = self
+                transactionVC.transactionData = TransactionData(
+                    currency: Currency.USD,
+                    value: 0.00,
+                    note: "Note...",
+                    date: Date(),
+                    kind: (sender as! UIButton).tag == 11 ? .to : .from
+                )
+                transactionVC.friend = friend.toFriendData()
+            } else {
+                fatalError("Segue destination is not TransactionViewController")
+            }
             
         default:
             break
@@ -66,13 +87,19 @@ class FriendsViewController: UIViewController {
     }
     
     @IBAction func handleGiveMoney(_ sender: UIButton) {
-        // TODO
+        var cell: UIView = sender
+        
+        while !(cell is FriendCell) {
+            cell = cell.superview!
+        }
+        let indexPath = collectionView.indexPath(for: cell as! UICollectionViewCell)
+        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredVertically)
+        
         performSegue(withIdentifier: "NewTransaction", sender: sender)
     }
     
     @IBAction func handleTakeMoney(_ sender: UIButton) {
-        // TODO
-        performSegue(withIdentifier: "NewTransaction", sender: sender)
+        handleGiveMoney(sender)
     }
     
     // MARK: Private Methods
@@ -142,6 +169,7 @@ extension FriendsViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: Friend Details View Delegate
 extension FriendsViewController: FriendDetailsViewControllerDelegate {
     
     func friendDetails(didEndEditing friendData: FriendData?) {
@@ -177,5 +205,18 @@ extension FriendsViewController: FriendDetailsViewControllerDelegate {
 
         collectionView.reloadData()
     }
+    
+}
+
+// MARK: Transition View Delegate
+extension FriendsViewController: TransactionViewControllerDelegate {
+    func transactionView(didEndEditing transactionData: TransactionData) {
+        let selected = collectionView.indexPathsForSelectedItems![0]
+        let friend = ModelManager.friend(selected.row - 1)
+        
+        _ = transactionData.toTransaction(owner: friend)
+        ModelManager.saveContext()
+    }
+    
     
 }

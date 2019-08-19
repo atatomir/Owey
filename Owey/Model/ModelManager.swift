@@ -13,12 +13,18 @@ import UIKit
 class ModelManager {
     enum FetchType {
         case friend
+        case transaction
         case all
     }
     
+    // MARK: Properties
     static let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
     static let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+    
     static var friendFetcher: NSFetchedResultsController<Friend>!
+    static var transactionFetcher: NSFetchedResultsController<Transaction>!
+    
+    
     
     class func saveContext() {
         appDelegate?.saveContext()
@@ -46,10 +52,31 @@ class ModelManager {
             }
         }
         
+        if type == .transaction || type == .all {
+            let request = Transaction.fetchRequest() as NSFetchRequest<Transaction>
+            let sort = NSSortDescriptor(key: "date", ascending: true)
+            request.sortDescriptors = [sort]
+            
+            transactionFetcher = NSFetchedResultsController<Transaction>(
+                fetchRequest: request,
+                managedObjectContext: persistentContainer.viewContext,
+                sectionNameKeyPath: nil,
+                cacheName: nil
+            )
+            
+            do {
+                try transactionFetcher.performFetch()
+                print("Fetched \(transactionFetcher.fetchedObjects?.count ?? 0) transactions")
+            } catch {
+                fatalError("Could not fetch friends")
+            }
+        }
+        
         // Add other types...
     }
 }
 
+// Extension for friend
 extension ModelManager {
     class func newFriend() -> Friend {
         return Friend(entity: Friend.entity(), insertInto: persistentContainer.viewContext)
@@ -65,5 +92,20 @@ extension ModelManager {
     
     class func deleteFriend(_ friend: Friend) {
         persistentContainer.viewContext.delete(friend)
+    }
+}
+
+// Extension for transaction
+extension ModelManager {
+    class func newTransaction() -> Transaction {
+        return Transaction(entity: Transaction.entity(), insertInto: persistentContainer.viewContext)
+    }
+    
+    class func transaction(_ index: Int) -> Transaction {
+        return transactionFetcher.object(at: IndexPath(row: index, section: 0))
+    }
+    
+    class func transactionCount() -> Int {
+        return transactionFetcher.fetchedObjects?.count ?? 0
     }
 }
