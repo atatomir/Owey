@@ -55,7 +55,7 @@
                                                     <rect key="frame" x="15" y="5" width="155" height="70"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAs-h8-FvI">
-                                                            <rect key="frame" x="0.0" y="0.0" width="155" height="21"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="155" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -418,6 +418,7 @@
                     <connections>
                         <segue destination="57e-Ux-Ep2" kind="relationship" relationship="viewControllers" id="Vsb-Ts-Krb"/>
                         <segue destination="D2j-W0-lHX" kind="relationship" relationship="viewControllers" id="4q3-Pf-qvc"/>
+                        <segue destination="Xrp-ef-LRW" kind="relationship" relationship="viewControllers" id="ibz-l0-CQ7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bv1-S9-xPw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -449,6 +450,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAR-9D-pZh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-221.73913043478262" y="-492.1875"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="SIv-Au-GCC">
+            <objects>
+                <viewController id="Xrp-ef-LRW" customClass="ResetViewController" customModule="Owey" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uCM-04-zab">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SsB-AF-WbK">
+                                <rect key="frame" x="91" y="412" width="232" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="Reset Data"/>
+                                <connections>
+                                    <action selector="handleReset:" destination="Xrp-ef-LRW" eventType="touchUpInside" id="dRK-ue-fMR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SsB-AF-WbK" firstAttribute="centerX" secondItem="uCM-04-zab" secondAttribute="centerX" id="8Gm-ul-4oF"/>
+                            <constraint firstItem="SsB-AF-WbK" firstAttribute="centerY" secondItem="uCM-04-zab" secondAttribute="centerY" id="FLm-l7-sqS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xCf-VS-4hM"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="5WZ-Sw-F6l"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pih-p3-62O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1042" y="526"/>
         </scene>
         <!--History-->
         <scene sceneID="pUe-Ry-1qh">

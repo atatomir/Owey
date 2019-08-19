@@ -13,6 +13,7 @@
 		F4395FB5230A8F10004142D3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4395FB4230A8F10004142D3 /* HistoryViewController.swift */; };
 		F4395FB7230AAB85004142D3 /* OwingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4395FB6230AAB85004142D3 /* OwingList.swift */; };
 		F4395FB9230AC39C004142D3 /* String+FormattedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4395FB8230AC39C004142D3 /* String+FormattedString.swift */; };
+		F4395FBB230AC6B3004142D3 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4395FBA230AC6B3004142D3 /* ResetViewController.swift */; };
 		F47819E02308135F004C8FF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47819DF2308135F004C8FF3 /* AppDelegate.swift */; };
 		F47819E72308135F004C8FF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47819E52308135F004C8FF3 /* Main.storyboard */; };
 		F47819EA2308135F004C8FF3 /* Owey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F47819E82308135F004C8FF3 /* Owey.xcdatamodeld */; };
@@ -43,6 +44,7 @@
 		F4395FB4230A8F10004142D3 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		F4395FB6230AAB85004142D3 /* OwingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwingList.swift; sourceTree = "<group>"; };
 		F4395FB8230AC39C004142D3 /* String+FormattedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FormattedString.swift"; sourceTree = "<group>"; };
+		F4395FBA230AC6B3004142D3 /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
 		F47819DC2308135F004C8FF3 /* Owey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47819DF2308135F004C8FF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47819E62308135F004C8FF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				F4B224E62309EC35003E5611 /* TransactionViewController.swift */,
 				F4154B3F230A82DA005C163C /* TransactionListViewController.swift */,
 				F4395FB4230A8F10004142D3 /* HistoryViewController.swift */,
+				F4395FBA230AC6B3004142D3 /* ResetViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				F4B224E92309EC4F003E5611 /* Currency.swift in Sources */,
 				F4781A0723093944004C8FF3 /* FriendData.swift in Sources */,
 				F47819FA230827C0004C8FF3 /* SummaryCell.swift in Sources */,
+				F4395FBB230AC6B3004142D3 /* ResetViewController.swift in Sources */,
 				F4B224E72309EC35003E5611 /* TransactionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

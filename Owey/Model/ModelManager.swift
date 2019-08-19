@@ -102,6 +102,10 @@ extension ModelManager {
     class func deleteFriend(_ friend: Friend) {
         persistentContainer.viewContext.delete(friend)
     }
+    
+    class func fetchedFriends() -> [Friend] {
+        return friendFetcher.fetchedObjects!
+    }
 }
 
 // Extension for transaction
