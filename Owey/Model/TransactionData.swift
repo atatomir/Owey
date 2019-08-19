@@ -25,7 +25,7 @@ struct TransactionData {
         transaction.currency = self.currency.rawValue
         transaction.date = self.date
         transaction.note = self.note
-        transaction.value = self.value
+        transaction.value = self.value * (self.kind == .to ? -1 : 1)
         transaction.who = owner
         
         return transaction

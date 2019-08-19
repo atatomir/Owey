@@ -31,10 +31,6 @@ class TransactionListViewController: UITableViewController {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return totalHeight / 5
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ModelManager.transactionCount()
     }

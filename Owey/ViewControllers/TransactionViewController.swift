@@ -43,7 +43,8 @@ class TransactionViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func done(_ sender: UIBarButtonItem) {
-        let value = ((valueField.text! as NSString).floatValue) as Float
+        let formatted = formattedString(valueField.text!, char: ".")
+        let value = ((formatted as NSString).floatValue) as Float
         
         transactionData = TransactionData(
             currency: pickedCurrency,
@@ -62,22 +63,22 @@ class TransactionViewController: UIViewController {
         if let friend = friend {
             picture.image = friend.image
             nameLabel.text = transactionData.kind.rawValue + " " + friend.name
-            valueField.text =  valueToString(transactionData.value)
+            valueField.text = formattedString(String(transactionData.value), char: ",")
             currencyPicker.selectRow(
                 Currency.getIndex(transactionData.currency),
                 inComponent: 0,
                 animated: true
             )
+            pickedCurrency = transactionData.currency
             noteTextField.text = transactionData.note
         }
     }
     
-    private func valueToString(_ value: Float) -> String {
-        let string = String(value)
+    private func formattedString(_ string: String, char replaceWith: Character) -> String {
         var result = ""
         for char in string {
-            if char == "." {
-                result.append(",")
+            if !char.isNumber {
+                result.append(replaceWith)
             } else {
                 result.append(char)
             }

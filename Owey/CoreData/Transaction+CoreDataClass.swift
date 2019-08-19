@@ -22,7 +22,7 @@ public class Transaction: NSManagedObject {
             value: abs(value),
             note: note,
             date: date,
-            kind: (value > 0 ? .to : .from)
+            kind: (value > 0 ? .from : .to)
         )
     }
 }

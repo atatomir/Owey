@@ -54,7 +54,7 @@ class ModelManager {
         
         if type == .transaction || type == .all {
             let request = Transaction.fetchRequest() as NSFetchRequest<Transaction>
-            let sort = NSSortDescriptor(key: "date", ascending: true)
+            let sort = NSSortDescriptor(key: "date", ascending: false)
             request.sortDescriptors = [sort]
             
             transactionFetcher = NSFetchedResultsController<Transaction>(

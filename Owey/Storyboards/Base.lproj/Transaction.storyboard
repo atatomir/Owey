@@ -103,7 +103,7 @@
         <scene sceneID="1ij-jK-0JP">
             <objects>
                 <tableViewController storyboardIdentifier="TransactionList" title="TransactionList" id="90N-N0-F2J" customClass="TransactionListViewController" customModule="Owey" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dwm-mM-ZqT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dwm-mM-ZqT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -118,9 +118,10 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gLS-PT-ecw">
                                             <rect key="frame" x="25" y="16" width="364" height="75"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0zc-4I-nFE" customClass="RoundedImageView" customModule="Owey" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0zc-4I-nFE" customClass="RoundedImageView" customModule="Owey" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="Koo-J5-k0L"/>
                                                         <constraint firstAttribute="width" secondItem="0zc-4I-nFE" secondAttribute="height" multiplier="1:1" id="rsR-oR-oJQ"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
@@ -131,21 +132,21 @@
                                                     <rect key="frame" x="83" y="0.0" width="281" height="75"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewc-J2-4ab">
-                                                            <rect key="frame" x="0.0" y="0.0" width="281" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="281" height="37"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                            <color key="textColor" red="0.023529411764705882" green="0.20392156862745098" blue="0.2627450980392157" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwE-1s-BzZ">
-                                                            <rect key="frame" x="0.0" y="29" width="281" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="0.0" y="42" width="281" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                            <color key="textColor" red="0.50980392156862742" green="0.15686274509803921" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0F-kb-R9C">
-                                                            <rect key="frame" x="0.0" y="54.5" width="281" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="0.0" y="65" width="281" height="10"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="8"/>
+                                                            <color key="textColor" red="0.023529411764705882" green="0.20392156862745098" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -164,6 +165,7 @@
                                     <outlet property="dateLabel" destination="W0F-kb-R9C" id="SzT-cY-Xi6"/>
                                     <outlet property="infoLabel" destination="VwE-1s-BzZ" id="TIB-M5-f1Z"/>
                                     <outlet property="picture" destination="0zc-4I-nFE" id="iwQ-il-bd9"/>
+                                    <outlet property="textStack" destination="md4-0d-ojg" id="5bD-Hr-3Jt"/>
                                     <outlet property="titleLabel" destination="ewc-J2-4ab" id="W5b-mk-fkS"/>
                                 </connections>
                             </tableViewCell>
