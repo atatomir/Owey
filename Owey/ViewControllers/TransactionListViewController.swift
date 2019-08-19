@@ -24,7 +24,7 @@ class TransactionListViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        ModelManager.transitionsForFriend = forFriend
+        ModelManager.transactionForFriend = forFriend
         ModelManager.refetchData(for: .transaction)
         tableView.reloadData()
     }

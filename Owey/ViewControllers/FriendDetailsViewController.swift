@@ -28,6 +28,7 @@ class FriendDetailsViewController: UIViewController {
     // MARK: Properties
     var friend: FriendData?
     var refFriend: Friend?
+    
     var imagePicker = UIImagePickerController()
     var delegate: FriendDetailsViewControllerDelegate?
     
@@ -40,6 +41,7 @@ class FriendDetailsViewController: UIViewController {
         
         navigationItem.largeTitleDisplayMode = .never
         nameLabel.delegate = self
+        setSummary()
         
         // Editing or Adding a friend?
         if let friend = friend {
@@ -68,6 +70,23 @@ class FriendDetailsViewController: UIViewController {
             
             self.tableViewContainer.addSubview(tableView)
             tableView.frame = CGRect(x: 0, y: 0, width: tableViewContainer.frame.width, height: tableViewContainer.frame.height)
+        }
+    }
+    
+    func setSummary() {
+        guard let refFriend = refFriend else {return}
+        
+        owingLabel.textColor = ColorManager.redTextOnBlue
+        owedLabel.textColor = ColorManager.greenTextOnBlue
+        settledLabel.textColor = ColorManager.settledColor
+        
+        let owingTexts = OwingList(for: refFriend).allTexts()
+        owingLabel.text = owingTexts.0
+        owedLabel.text = owingTexts.1
+        settledLabel.text = owingTexts.2
+        
+        for item in [owingLabel!, owedLabel!, settledLabel!] {
+            item.isHidden = (item.text == nil)
         }
     }
     

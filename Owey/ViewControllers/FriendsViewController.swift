@@ -30,7 +30,14 @@ class FriendsViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
         ModelManager.refetchData(for: .all)
+        collectionView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -131,6 +138,7 @@ extension FriendsViewController: UICollectionViewDataSource {
                 fatalError("First cell in FriendsCollectionView is not a SummaryCell")
             }
             
+            cell.setSummary()
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendCell", for: indexPath) as? FriendCell else {
@@ -139,7 +147,9 @@ extension FriendsViewController: UICollectionViewDataSource {
             
             let fetchedFriend = ModelManager.friend(indexPath.row - 1)
             cell.friend = fetchedFriend.toFriendData()
+            cell.refFriend = fetchedFriend
             
+            cell.setSummary()
             return cell
         }
     }

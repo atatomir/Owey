@@ -14,7 +14,7 @@ class ColorManager {
     static let cellColor = UIColor(red: 6, green: 52, blue: 67, alpha: 100)
     
     static let greenButtonColor = UIColor(red: 64, green: 133, blue: 46, alpha: 100)
-    static let redButtonColor = UIColor(red: 218, green: 89, blue: 71, alpha: 100)
+    static let redButtonColor = UIColor(red: 218.0 / 255, green: 89.0 / 255, blue: 71.0 / 255, alpha: 1)
     
     static let redTextOnBlue = redButtonColor
     static let redTextOnGrey = UIColor(red: 170.0 / 255, green: 40.0 / 255, blue: 34.0 / 255, alpha: 1)
@@ -22,7 +22,7 @@ class ColorManager {
     static let greenTextOnBlue = iconColor
     static let greenTextOnGrey = UIColor(red: 32.0 / 255, green: 101.0 / 255, blue: 80.0 / 255, alpha: 1)
     
-    static let settledColor = UIColor(red: 227, green: 181, blue: 5, alpha: 100)
+    static let settledColor = UIColor(red: 227.0 / 255, green: 181.0 / 255, blue: 5.0 / 255, alpha: 1)
     
-    static let iconColor = UIColor(red: 114, green: 199, blue: 92, alpha: 100)
+    static let iconColor = UIColor(red: 114.0 / 255, green: 199.0 / 255, blue: 92.0 / 255, alpha: 1)
 }

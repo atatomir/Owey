@@ -11,7 +11,7 @@ import UIKit
 
 enum Currency: String, CaseIterable {
     case RON = "RON"
-    case USD = "US$"
+    case USD = "$"
     case EUR = "€"
     case GBP = "£"
     
@@ -22,5 +22,5 @@ enum Currency: String, CaseIterable {
 
 struct CurrencyValue {
     var currency: Currency = .USD
-    var value: Float = 0.00
+    var value: Double = 0.00
 }

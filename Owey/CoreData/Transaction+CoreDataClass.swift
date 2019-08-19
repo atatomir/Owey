@@ -7,6 +7,11 @@
 //
 //
 
+/* to = +, from = -
+ * (+) = gave but will receive
+ * (-)
+ */
+
 import Foundation
 import CoreData
 
@@ -22,7 +27,7 @@ public class Transaction: NSManagedObject {
             value: abs(value),
             note: note,
             date: date,
-            kind: (value > 0 ? .from : .to)
+            kind: (value > 0 ? .to : .from)
         )
     }
 }

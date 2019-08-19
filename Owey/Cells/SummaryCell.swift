@@ -11,6 +11,7 @@ import UIKit
 class SummaryCell: UICollectionViewCell {
    
     // MARK: Outlets
+    @IBOutlet weak var textStack: UIStackView!
     @IBOutlet weak var owingLabel: UILabel!
     @IBOutlet weak var owedLabel: UILabel!
     @IBOutlet weak var settledLabel: UILabel!
@@ -31,14 +32,21 @@ class SummaryCell: UICollectionViewCell {
         contentView.setCornerRadius()
     }
     
-    // MARK: Private methods
-    func resetSummary() {
+    func setSummary() {
         _ = self.contentView
         
         owingLabel.textColor = ColorManager.redTextOnBlue
         owedLabel.textColor = ColorManager.greenTextOnBlue
         settledLabel.textColor = ColorManager.settledColor
+    
+        let owingTexts = OwingList().allTexts()
+        owingLabel.text = owingTexts.0
+        owedLabel.text = owingTexts.1
+        settledLabel.text = owingTexts.2
         
-        // TODO: Hide or show labels
+        for item in [owingLabel!, owedLabel!, settledLabel!] {
+            item.isHidden = (item.text == nil)
+        }
     }
+    
 }

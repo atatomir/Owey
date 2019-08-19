@@ -3,14 +3,14 @@
     <entity name="Friend" representedClassName="Friend" syncable="YES">
         <attribute name="name" attributeType="String"/>
         <attribute name="picture" attributeType="Transformable"/>
-        <relationship name="transactions" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="transactions" inverseEntity="Friend"/>
+        <relationship name="transactions" toMany="YES" deletionRule="Deny" destinationEntity="Friend" inverseName="transactions" inverseEntity="Friend"/>
     </entity>
     <entity name="Transaction" representedClassName="Transaction" syncable="YES">
         <attribute name="currency" attributeType="String"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="note" attributeType="String"/>
-        <attribute name="value" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="who" maxCount="1" deletionRule="Nullify" destinationEntity="Friend"/>
+        <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="who" maxCount="1" deletionRule="Deny" destinationEntity="Friend"/>
     </entity>
     <elements>
         <element name="Friend" positionX="-63" positionY="-18" width="128" height="88"/>

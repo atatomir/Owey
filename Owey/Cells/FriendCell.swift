@@ -11,11 +11,15 @@ import UIKit
 
 class FriendCell: UICollectionViewCell {
     
+    // MARK: Outlets
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var owingLabel: UILabel!
     @IBOutlet weak var owedLabel: UILabel!
     @IBOutlet weak var settledLabel: UILabel!
+    
+    // MARK: Properties
+    var refFriend: Friend!
     
     var friend: FriendData! {
         didSet {
@@ -28,6 +32,7 @@ class FriendCell: UICollectionViewCell {
         }
     }
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.setCornerRadius()
@@ -38,14 +43,22 @@ class FriendCell: UICollectionViewCell {
         contentView.setCornerRadius()
     }
     
-    // MARK: Private methods
-    func resetSummary() {
+    func setSummary() {
         _ = self.contentView
         
         owingLabel.textColor = ColorManager.redTextOnBlue
         owedLabel.textColor = ColorManager.greenTextOnBlue
         settledLabel.textColor = ColorManager.settledColor
         
-        // TODO: Hide or show labels
+        let owingTexts = OwingList(for: refFriend).allTexts()
+        owingLabel.text = owingTexts.0
+        owedLabel.text = owingTexts.1
+        settledLabel.text = owingTexts.2
+        
+        for item in [owingLabel!, owedLabel!, settledLabel!] {
+            item.isHidden = (item.text == nil)
+        }
     }
+    
+    // MARK: Private methods
 }

@@ -11,6 +11,8 @@
 		F4154B40230A82DA005C163C /* TransactionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4154B3F230A82DA005C163C /* TransactionListViewController.swift */; };
 		F4395FB3230A85F2004142D3 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4395FB2230A85F2004142D3 /* TransactionCell.swift */; };
 		F4395FB5230A8F10004142D3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4395FB4230A8F10004142D3 /* HistoryViewController.swift */; };
+		F4395FB7230AAB85004142D3 /* OwingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4395FB6230AAB85004142D3 /* OwingList.swift */; };
+		F4395FB9230AC39C004142D3 /* String+FormattedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4395FB8230AC39C004142D3 /* String+FormattedString.swift */; };
 		F47819E02308135F004C8FF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47819DF2308135F004C8FF3 /* AppDelegate.swift */; };
 		F47819E72308135F004C8FF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47819E52308135F004C8FF3 /* Main.storyboard */; };
 		F47819EA2308135F004C8FF3 /* Owey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F47819E82308135F004C8FF3 /* Owey.xcdatamodeld */; };
@@ -39,6 +41,8 @@
 		F4154B3F230A82DA005C163C /* TransactionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewController.swift; sourceTree = "<group>"; };
 		F4395FB2230A85F2004142D3 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		F4395FB4230A8F10004142D3 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		F4395FB6230AAB85004142D3 /* OwingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwingList.swift; sourceTree = "<group>"; };
+		F4395FB8230AC39C004142D3 /* String+FormattedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FormattedString.swift"; sourceTree = "<group>"; };
 		F47819DC2308135F004C8FF3 /* Owey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47819DF2308135F004C8FF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47819E62308135F004C8FF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			children = (
 				F4B224DA2309E974003E5611 /* UIRoundedView.swift */,
 				F47819FF230924F7004C8FF3 /* UIView+RoundedCorners.swift */,
+				F4395FB8230AC39C004142D3 /* String+FormattedString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				F4B224E82309EC4F003E5611 /* Currency.swift */,
 				F4781A172309683C004C8FF3 /* ModelManager.swift */,
 				F47819F623081EBE004C8FF3 /* ColorManager.swift */,
+				F4395FB6230AAB85004142D3 /* OwingList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4395FB9230AC39C004142D3 /* String+FormattedString.swift in Sources */,
 				F4B224E42309EB86003E5611 /* Transaction+CoreDataProperties.swift in Sources */,
 				F4781A02230925C8004C8FF3 /* FriendCell.swift in Sources */,
 				F4B224E32309EB86003E5611 /* Transaction+CoreDataClass.swift in Sources */,
@@ -252,6 +259,7 @@
 				F4781A16230952ED004C8FF3 /* Friend+CoreDataProperties.swift in Sources */,
 				F47819EA2308135F004C8FF3 /* Owey.xcdatamodeld in Sources */,
 				F4154B3E230A7AB5005C163C /* TransactionData.swift in Sources */,
+				F4395FB7230AAB85004142D3 /* OwingList.swift in Sources */,
 				F47819E02308135F004C8FF3 /* AppDelegate.swift in Sources */,
 				F4781A182309683C004C8FF3 /* ModelManager.swift in Sources */,
 				F4395FB3230A85F2004142D3 /* TransactionCell.swift in Sources */,

@@ -51,33 +51,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="185" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="mtZ-lQ-aiy">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="mtZ-lQ-aiy">
                                                     <rect key="frame" x="15" y="5" width="155" height="70"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAs-h8-FvI">
-                                                            <rect key="frame" x="0.0" y="0.0" width="155" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="155" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="hdU-fA-bcD">
-                                                            <rect key="frame" x="0.0" y="21.5" width="107.5" height="48.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hdU-fA-bcD">
+                                                            <rect key="frame" x="0.0" y="22" width="155" height="48"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="You owe $10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xa8-sF-duM">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="107.5" height="16"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="155" height="16"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="You are owed £10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VjQ-ni-pkE">
-                                                                    <rect key="frame" x="0.0" y="17" width="107.5" height="16"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <rect key="frame" x="0.0" y="16" width="155" height="16"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Settled up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vO2-ey-mtt">
-                                                                    <rect key="frame" x="0.0" y="34" width="107.5" height="14.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <rect key="frame" x="0.0" y="32" width="155" height="16"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -85,7 +85,11 @@
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="hdU-fA-bcD" secondAttribute="bottom" id="0mm-2J-jiC"/>
                                                         <constraint firstAttribute="trailing" secondItem="tAs-h8-FvI" secondAttribute="trailing" id="9ZH-VH-V1i"/>
+                                                        <constraint firstItem="hdU-fA-bcD" firstAttribute="leading" secondItem="mtZ-lQ-aiy" secondAttribute="leading" id="HRV-R1-Ien"/>
+                                                        <constraint firstAttribute="trailing" secondItem="hdU-fA-bcD" secondAttribute="trailing" id="Shi-WK-cAJ"/>
+                                                        <constraint firstItem="hdU-fA-bcD" firstAttribute="top" secondItem="tAs-h8-FvI" secondAttribute="bottom" id="amz-Fv-hQR"/>
                                                         <constraint firstItem="tAs-h8-FvI" firstAttribute="leading" secondItem="mtZ-lQ-aiy" secondAttribute="leading" id="js6-wZ-xEX"/>
                                                     </constraints>
                                                 </stackView>
@@ -103,6 +107,7 @@
                                             <outlet property="owedLabel" destination="VjQ-ni-pkE" id="x2l-MN-mhJ"/>
                                             <outlet property="owingLabel" destination="xa8-sF-duM" id="Zbw-rd-b9j"/>
                                             <outlet property="settledLabel" destination="vO2-ey-mtt" id="a0E-ah-6p7"/>
+                                            <outlet property="textStack" destination="hdU-fA-bcD" id="TqT-Rg-q6f"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FriendCell" id="bxY-IO-l9i" customClass="FriendCell" customModule="Owey" customModuleProvider="target">

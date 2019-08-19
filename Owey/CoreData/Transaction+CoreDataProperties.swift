@@ -18,7 +18,7 @@ extension Transaction {
     }
 
     @NSManaged public var currency: String
-    @NSManaged public var value: Float
+    @NSManaged public var value: Double
     @NSManaged public var note: String
     @NSManaged public var date: Date
     @NSManaged public var who: Friend

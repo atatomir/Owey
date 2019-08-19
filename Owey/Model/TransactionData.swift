@@ -15,7 +15,7 @@ struct TransactionData {
     }
     
     var currency: Currency
-    var value: Float
+    var value: Double
     var note: String
     var date: Date
     var kind: Kind
@@ -25,7 +25,7 @@ struct TransactionData {
         transaction.currency = self.currency.rawValue
         transaction.date = self.date
         transaction.note = self.note
-        transaction.value = self.value * (self.kind == .to ? -1 : 1)
+        transaction.value = self.value * (self.kind == .to ? 1 : -1)
         transaction.who = owner
         
         return transaction
