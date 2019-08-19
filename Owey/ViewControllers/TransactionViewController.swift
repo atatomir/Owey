@@ -47,8 +47,8 @@ class TransactionViewController: UIViewController {
         
         transactionData = TransactionData(
             currency: pickedCurrency,
-            value: value, note:
-            noteTextField.text!,
+            value: value,
+            note: noteTextField.text!,
             date: transactionData.date,
             kind: transactionData.kind
         )
@@ -62,7 +62,7 @@ class TransactionViewController: UIViewController {
         if let friend = friend {
             picture.image = friend.image
             nameLabel.text = transactionData.kind.rawValue + " " + friend.name
-            valueField.text =  String(transactionData.value)
+            valueField.text =  valueToString(transactionData.value)
             currencyPicker.selectRow(
                 Currency.getIndex(transactionData.currency),
                 inComponent: 0,
@@ -70,6 +70,19 @@ class TransactionViewController: UIViewController {
             )
             noteTextField.text = transactionData.note
         }
+    }
+    
+    private func valueToString(_ value: Float) -> String {
+        let string = String(value)
+        var result = ""
+        for char in string {
+            if char == "." {
+                result.append(",")
+            } else {
+                result.append(char)
+            }
+        }
+        return result
     }
 }
 

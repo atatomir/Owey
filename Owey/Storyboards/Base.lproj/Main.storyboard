@@ -12,23 +12,11 @@
         <!--History-->
         <scene sceneID="tvh-4o-xsg">
             <objects>
-                <viewController id="1BZ-Z2-iYt" sceneMemberID="viewController">
+                <viewController id="1BZ-Z2-iYt" customClass="HistoryViewController" customModule="Owey" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uh4-d8-s8x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Yc-m6-mtg">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
-                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="5Yc-m6-mtg" firstAttribute="centerX" secondItem="dRx-Br-c4z" secondAttribute="centerX" id="DpC-se-30o"/>
-                            <constraint firstItem="5Yc-m6-mtg" firstAttribute="width" secondItem="dRx-Br-c4z" secondAttribute="width" id="IWh-gq-Q6W"/>
-                            <constraint firstItem="5Yc-m6-mtg" firstAttribute="centerY" secondItem="dRx-Br-c4z" secondAttribute="centerY" id="vlj-z4-x0j"/>
-                            <constraint firstItem="5Yc-m6-mtg" firstAttribute="height" secondItem="dRx-Br-c4z" secondAttribute="height" id="yys-IT-CKx"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dRx-Br-c4z"/>
                     </view>
                     <navigationItem key="navigationItem" title="History" largeTitleDisplayMode="always" id="CkN-64-yFJ"/>

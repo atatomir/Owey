@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F4154B3E230A7AB5005C163C /* TransactionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4154B3D230A7AB5005C163C /* TransactionData.swift */; };
+		F4154B40230A82DA005C163C /* TransactionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4154B3F230A82DA005C163C /* TransactionListViewController.swift */; };
+		F4395FB3230A85F2004142D3 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4395FB2230A85F2004142D3 /* TransactionCell.swift */; };
+		F4395FB5230A8F10004142D3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4395FB4230A8F10004142D3 /* HistoryViewController.swift */; };
 		F47819E02308135F004C8FF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47819DF2308135F004C8FF3 /* AppDelegate.swift */; };
 		F47819E72308135F004C8FF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47819E52308135F004C8FF3 /* Main.storyboard */; };
 		F47819EA2308135F004C8FF3 /* Owey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F47819E82308135F004C8FF3 /* Owey.xcdatamodeld */; };
@@ -33,6 +36,9 @@
 
 /* Begin PBXFileReference section */
 		F4154B3D230A7AB5005C163C /* TransactionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionData.swift; sourceTree = "<group>"; };
+		F4154B3F230A82DA005C163C /* TransactionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewController.swift; sourceTree = "<group>"; };
+		F4395FB2230A85F2004142D3 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		F4395FB4230A8F10004142D3 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		F47819DC2308135F004C8FF3 /* Owey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47819DF2308135F004C8FF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47819E62308135F004C8FF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 			children = (
 				F47819F9230827C0004C8FF3 /* SummaryCell.swift */,
 				F4781A01230925C8004C8FF3 /* FriendCell.swift */,
+				F4395FB2230A85F2004142D3 /* TransactionCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -118,6 +125,8 @@
 				F47819FC23082A08004C8FF3 /* FriendsViewController.swift */,
 				F4781A03230934D9004C8FF3 /* FriendDetailsViewController.swift */,
 				F4B224E62309EC35003E5611 /* TransactionViewController.swift */,
+				F4154B3F230A82DA005C163C /* TransactionListViewController.swift */,
+				F4395FB4230A8F10004142D3 /* HistoryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -238,13 +247,16 @@
 				F4B224E42309EB86003E5611 /* Transaction+CoreDataProperties.swift in Sources */,
 				F4781A02230925C8004C8FF3 /* FriendCell.swift in Sources */,
 				F4B224E32309EB86003E5611 /* Transaction+CoreDataClass.swift in Sources */,
+				F4154B40230A82DA005C163C /* TransactionListViewController.swift in Sources */,
 				F4781A15230952ED004C8FF3 /* Friend+CoreDataClass.swift in Sources */,
 				F4781A16230952ED004C8FF3 /* Friend+CoreDataProperties.swift in Sources */,
 				F47819EA2308135F004C8FF3 /* Owey.xcdatamodeld in Sources */,
 				F4154B3E230A7AB5005C163C /* TransactionData.swift in Sources */,
 				F47819E02308135F004C8FF3 /* AppDelegate.swift in Sources */,
 				F4781A182309683C004C8FF3 /* ModelManager.swift in Sources */,
+				F4395FB3230A85F2004142D3 /* TransactionCell.swift in Sources */,
 				F4781A04230934D9004C8FF3 /* FriendDetailsViewController.swift in Sources */,
+				F4395FB5230A8F10004142D3 /* HistoryViewController.swift in Sources */,
 				F4B224DB2309E974003E5611 /* UIRoundedView.swift in Sources */,
 				F4781A00230924F7004C8FF3 /* UIView+RoundedCorners.swift in Sources */,
 				F47819F723081EBE004C8FF3 /* ColorManager.swift in Sources */,
