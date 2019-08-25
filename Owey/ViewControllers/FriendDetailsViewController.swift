@@ -24,6 +24,7 @@ class FriendDetailsViewController: UIViewController {
     @IBOutlet var owedLabel: UILabel!
     @IBOutlet var settledLabel: UILabel!
     @IBOutlet var tableViewContainer: UIView!
+    @IBOutlet var doneButton: UIBarButtonItem!
     
     // MARK: Properties
     var friend: FriendData?
@@ -39,21 +40,24 @@ class FriendDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Navigation Title
         navigationItem.largeTitleDisplayMode = .never
+        
+        // Delegates
         nameLabel.delegate = self
-        setSummary()
         
         // Editing or Adding a friend?
         if let friend = friend {
             profilePicture.image = friend.image
             nameLabel.text = friend.name
             navigationItem.title = friend.name
-            resetSummary()
+            setSummary()
         } else {
             profilePicture.image = UIImage(named: "Ricky")
             nameLabel.text = "Name"
             navigationItem.title = "Name"
-            hideLabels()
+            setSummary(hidden: true)
+            nameLabel.becomeFirstResponder()
         }
         
         // Initialize history
@@ -73,7 +77,12 @@ class FriendDetailsViewController: UIViewController {
         }
     }
     
-    func setSummary() {
+    func setSummary(hidden: Bool = false) {
+        if hidden {
+            owedLabel.isHidden = true
+            owingLabel.isHidden = true
+            settledLabel.isHidden = true
+        }
         guard let refFriend = refFriend else {return}
         
         owingLabel.textColor = ColorManager.redTextOnBlue
@@ -115,19 +124,24 @@ class FriendDetailsViewController: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    // MARK: Private methods
-    private func resetSummary() {
-        owingLabel.textColor = ColorManager.redTextOnBlue
-        owedLabel.textColor = ColorManager.greenTextOnBlue
-        settledLabel.textColor = ColorManager.settledColor
-        
-        // TODO: Hide or show labels
+    @IBAction func nameChanged(_ sender: Any) {
+        updateDoneButton()
     }
+    
+    // MARK: Private methods
     
     private func hideLabels() {
         owingLabel.isHidden = true
         owedLabel.isHidden = true
         settledLabel.isHidden = true
+    }
+    
+    @objc private func updateDoneButton() {
+        if let text = nameLabel.text, text.count > 0 {
+            doneButton.isEnabled = true
+        } else {
+            doneButton.isEnabled = false
+        }
     }
     
 }
@@ -143,6 +157,8 @@ extension FriendDetailsViewController: UITextFieldDelegate {
         navigationItem.title = textField.text
         textField.resignFirstResponder()
     }
+    
+    
 }
 
 extension FriendDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

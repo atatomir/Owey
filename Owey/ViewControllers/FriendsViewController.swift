@@ -31,6 +31,7 @@ class FriendsViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        customizeNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -111,12 +112,17 @@ class FriendsViewController: UIViewController {
     }
     
     // MARK: Private Methods
-    func deselectAllItems() {
+    private func deselectAllItems() {
         if let selected = collectionView.indexPathsForSelectedItems {
             for item in selected {
                 collectionView.deselectItem(at: item, animated: true)
             }
         }
+    }
+    
+    private func customizeNavigationBar() {
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
 }

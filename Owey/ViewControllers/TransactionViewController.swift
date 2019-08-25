@@ -35,9 +35,13 @@ class TransactionViewController: UIViewController {
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Delegates
         valueField.delegate = self
         currencyPicker.dataSource = self
         currencyPicker.delegate = self
+        
+        // Initialize
         initializeFields()
     }
     
@@ -60,7 +64,7 @@ class TransactionViewController: UIViewController {
     
     // MARK: Private methods
     private func initializeFields() {
-        if let friend = friend {
+        if let friend = friend, let transactionData = transactionData {
             picture.image = friend.image
             nameLabel.text = transactionData.kind.rawValue + " " + friend.name
             valueField.text = String(transactionData.value).formattedString(char: ",")
@@ -80,6 +84,7 @@ class TransactionViewController: UIViewController {
 extension TransactionViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
+        // Maximum 9 digits, 1 comma, 2 digits after comma
         let text = textField.text ?? ""
         let nsText = text as NSString
         let modText = nsText.replacingCharacters(in: range, with: string)

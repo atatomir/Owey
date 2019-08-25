@@ -21,9 +21,9 @@ import UIKit
         }
     }
     
-    private func updateRoundedCorners() {
+    func updateRoundedCorners() {
         if circleMask {
-            let radius = min(self.frame.height, self.frame.height) / 2
+            let radius = min(self.frame.height, self.frame.width) / 2
             setCornerRadius(radius: radius)
         } else {
             setCornerRadius(radius: cornerRadius)

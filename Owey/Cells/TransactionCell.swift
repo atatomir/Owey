@@ -70,6 +70,8 @@ class TransactionCell: UITableViewCell {
                 stack.addArrangedSubview(picture)
             }
         }
+        
+        picture.updateRoundedCorners()
     }
 
 }
