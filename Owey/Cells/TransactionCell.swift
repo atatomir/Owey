@@ -34,6 +34,11 @@ class TransactionCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        picture.updateRoundedCorners()
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -70,8 +75,6 @@ class TransactionCell: UITableViewCell {
                 stack.addArrangedSubview(picture)
             }
         }
-        
-        picture.updateRoundedCorners()
     }
 
 }

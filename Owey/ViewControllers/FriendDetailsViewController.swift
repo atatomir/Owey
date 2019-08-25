@@ -24,6 +24,7 @@ class FriendDetailsViewController: UIViewController {
     @IBOutlet var owedLabel: UILabel!
     @IBOutlet var settledLabel: UILabel!
     @IBOutlet var tableViewContainer: UIView!
+    @IBOutlet var detailsStack: UIStackView!
     @IBOutlet var doneButton: UIBarButtonItem!
     
     // MARK: Properties

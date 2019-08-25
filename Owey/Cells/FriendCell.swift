@@ -12,7 +12,7 @@ import UIKit
 class FriendCell: UICollectionViewCell {
     
     // MARK: Outlets
-    @IBOutlet weak var picture: UIImageView!
+    @IBOutlet weak var picture: RoundedImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var owingLabel: UILabel!
     @IBOutlet weak var owedLabel: UILabel!
@@ -41,6 +41,11 @@ class FriendCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         contentView.setCornerRadius()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        picture.updateRoundedCorners()
     }
     
     func setSummary() {
