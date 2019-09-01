@@ -25,7 +25,6 @@ class TransactionViewController: UIViewController {
     @IBOutlet var noteTextField: UITextField!
     
     // MARK: Properties
-
     var friend: FriendData!
     var transactionData: TransactionData!
     

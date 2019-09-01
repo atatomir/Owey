@@ -29,6 +29,27 @@ class TransactionListViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "ShowTransaction":
+            guard let indexPath = tableView.indexPathForSelectedRow else {
+                fatalError("No cell selected")
+            }
+            
+            guard let controller = segue.destination as? TransactionViewController else {
+                fatalError("Destionation is not a TransactionViewController")
+            }
+            
+            let transaction = ModelManager.transaction(indexPath.row)
+            controller.transactionData = transaction.toTransactionData()
+            controller.friend = transaction.who.toFriendData()
+            controller.delegate = self
+            
+        default:
+            fatalError("Invalid Segue Identifier")
+        }
+    }
+    
     // MARK: Table View Data Source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -52,6 +73,24 @@ class TransactionListViewController: UITableViewController {
     
     // MARK: Table View Delegate
 
+    
+    
+}
+
+extension TransactionListViewController: TransactionViewControllerDelegate {
+    func transactionView(didEndEditing data: TransactionData) {
+        guard let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError("No cell selected")
+        }
+        
+        let transaction = ModelManager.transaction(indexPath.row)
+        transaction.currency = data.currency.rawValue
+        transaction.date = data.date
+        transaction.note = data.note
+        transaction.value = data.value
+        
+        ModelManager.saveContext()
+    }
     
     
 }

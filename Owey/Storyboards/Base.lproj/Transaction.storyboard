@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="dFp-YG-fWl" customClass="TransactionViewController" customModule="Owey" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bmX-kc-kbn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zfx-bg-aQA" userLabel="Main Stack">
-                                <rect key="frame" x="10" y="98" width="394" height="324"/>
+                                <rect key="frame" x="10" y="54" width="394" height="324"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" image="Ricky" translatesAutoresizingMaskIntoConstraints="NO" id="Iu9-yc-fdK" customClass="RoundedImageView" customModule="Owey" customModuleProvider="target">
                                         <rect key="frame" x="132" y="0.0" width="130" height="130"/>
@@ -99,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjr-IS-w1f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1715.9420289855075" y="-138.61607142857142"/>
+            <point key="canvasLocation" x="2809" y="-77"/>
         </scene>
         <!--TransactionList-->
         <scene sceneID="1ij-jK-0JP">
@@ -177,6 +177,7 @@
                                     <outlet property="picture" destination="0zc-4I-nFE" id="iwQ-il-bd9"/>
                                     <outlet property="textStack" destination="md4-0d-ojg" id="5bD-Hr-3Jt"/>
                                     <outlet property="titleLabel" destination="ewc-J2-4ab" id="W5b-mk-fkS"/>
+                                    <segue destination="dFp-YG-fWl" kind="show" identifier="ShowTransaction" id="rCC-rQ-rUq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -188,7 +189,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEG-zN-f8E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2637.68115942029" y="-125.22321428571428"/>
+            <point key="canvasLocation" x="1691" y="-87"/>
         </scene>
     </scenes>
     <resources>
