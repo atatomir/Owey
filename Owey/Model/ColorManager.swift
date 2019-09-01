@@ -16,7 +16,7 @@ class ColorManager {
     static let greenButtonColor = UIColor(red: 64, green: 133, blue: 46, alpha: 100)
     static let redButtonColor = UIColor(red: 218.0 / 255, green: 89.0 / 255, blue: 71.0 / 255, alpha: 1)
     
-    static let redTextOnBlue = redButtonColor
+    static let redTextOnBlue = UIColor(red: 230.0 / 255, green: 56.0 / 255, blue: 56.0 / 255, alpha: 1)
     static let redTextOnGrey = UIColor(red: 170.0 / 255, green: 40.0 / 255, blue: 34.0 / 255, alpha: 1)
     
     static let greenTextOnBlue = iconColor

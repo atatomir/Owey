@@ -18,7 +18,7 @@ protocol FriendDetailsViewControllerDelegate {
 class FriendDetailsViewController: UIViewController {
     
     // MARK: Outlets
-    @IBOutlet var profilePicture: UIImageView!
+    @IBOutlet var profilePicture: RoundedImageView!
     @IBOutlet var nameLabel: UITextField!
     @IBOutlet var owingLabel: UILabel!
     @IBOutlet var owedLabel: UILabel!
@@ -26,6 +26,7 @@ class FriendDetailsViewController: UIViewController {
     @IBOutlet var tableViewContainer: UIView!
     @IBOutlet var detailsStack: UIStackView!
     @IBOutlet var doneButton: UIBarButtonItem!
+    @IBOutlet var backgroundView: UIView!
     
     // MARK: Properties
     var friend: FriendData?
@@ -41,12 +42,14 @@ class FriendDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize Nav Bar
-        navigationItem.largeTitleDisplayMode = .never
-        updateDoneButton()
-        
         // Delegates
         nameLabel.delegate = self
+        
+        // Initialize UI
+        navigationItem.largeTitleDisplayMode = .never
+        updateDoneButton()
+        backgroundView.setCornerRadius()
+        
         
         // Editing or Adding a friend?
         if let friend = friend {
