@@ -74,8 +74,8 @@ class FriendsViewController: UIViewController {
                 transactionVC.delegate = self
                 transactionVC.transactionData = TransactionData(
                     currency: Currency.USD,
-                    value: 0.00,
-                    note: "Note...",
+                    value: -1.00,
+                    note: "",
                     date: Date(),
                     kind: (sender as! UIButton).tag == 11 ? .to : .from
                 )
@@ -123,6 +123,7 @@ class FriendsViewController: UIViewController {
     private func customizeNavigationBar() {
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        navigationController?.navigationItem.largeTitleDisplayMode = .always
     }
     
 }

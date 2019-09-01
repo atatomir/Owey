@@ -41,8 +41,9 @@ class FriendDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Navigation Title
+        // Initialize Nav Bar
         navigationItem.largeTitleDisplayMode = .never
+        updateDoneButton()
         
         // Delegates
         nameLabel.delegate = self
@@ -55,8 +56,8 @@ class FriendDetailsViewController: UIViewController {
             setSummary()
         } else {
             profilePicture.image = UIImage(named: "Ricky")
-            nameLabel.text = "Name"
-            navigationItem.title = "Name"
+            nameLabel.text = ""
+            navigationItem.title = "New friend"
             setSummary(hidden: true)
             nameLabel.becomeFirstResponder()
         }
@@ -137,7 +138,7 @@ class FriendDetailsViewController: UIViewController {
         settledLabel.isHidden = true
     }
     
-    @objc private func updateDoneButton() {
+    private func updateDoneButton() {
         if let text = nameLabel.text, text.count > 0 {
             doneButton.isEnabled = true
         } else {

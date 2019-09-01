@@ -23,6 +23,7 @@ class TransactionViewController: UIViewController {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var currencyPicker: UIPickerView!
     @IBOutlet var noteTextField: UITextField!
+    @IBOutlet var doneButton: UIBarButtonItem!
     
     // MARK: Properties
     var friend: FriendData!
@@ -37,11 +38,14 @@ class TransactionViewController: UIViewController {
         
         // Delegates
         valueField.delegate = self
+        noteTextField.delegate = self
         currencyPicker.dataSource = self
         currencyPicker.delegate = self
         
         // Initialize
         initializeFields()
+        valueField.becomeFirstResponder()
+        updateDoneButton()
     }
     
     // MARK: Actions
@@ -61,12 +65,24 @@ class TransactionViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func valueChanged(_ sender: UITextField) {
+        
+        updateDoneButton()
+    }
+    
+    
+    @IBAction func noteChanged(_ sender: UITextField) {
+        
+        updateDoneButton()
+    }
+    
+    
+    
     // MARK: Private methods
     private func initializeFields() {
         if let friend = friend, let transactionData = transactionData {
             picture.image = friend.image
             nameLabel.text = transactionData.kind.rawValue + " " + friend.name
-            valueField.text = String(transactionData.value).formattedString(char: ",")
             currencyPicker.selectRow(
                 Currency.getIndex(transactionData.currency),
                 inComponent: 0,
@@ -74,20 +90,57 @@ class TransactionViewController: UIViewController {
             )
             pickedCurrency = transactionData.currency
             noteTextField.text = transactionData.note
+            
+            if transactionData.value < 0 {
+                valueField.text = ""
+            } else {
+                valueField.text = String(transactionData.value).formattedString(char: ",")
+            }
         }
     }
     
+    private func updateDoneButton() {
+        func shouldBeEnabled() -> Bool {
+            guard let valueText = valueField.text,
+                let noteText = noteTextField.text,
+                let value = Double(valueText.formattedString(char: ".")) else {
+                    
+                return false
+            }
+            
+            if !valueTextValidation(valueText) { return false }
+            if !noteTextValidation(noteText) { return false }
+            if value < OwingList.eps { return false }
+            if noteText.count == 0 { return false }
+            
+            return true
+        }
+        
+        doneButton.isEnabled = shouldBeEnabled()
+    }
     
 }
 
 extension TransactionViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-        // Maximum 9 digits, 1 comma, 2 digits after comma
+        
         let text = textField.text ?? ""
         let nsText = text as NSString
         let modText = nsText.replacingCharacters(in: range, with: string)
         
+        if textField.tag == 101 {
+            return valueTextValidation(modText)
+        }
+        
+        if textField.tag == 102 {
+            return noteTextValidation(modText)
+        }
+        
+        fatalError("TextField not recognized")
+    }
+    
+    private func valueTextValidation(_ modText: String) -> Bool {
+        // Maximum 9 digits, 1 comma, 2 digits after comma
         let digits = modText.filter({ $0.isNumber })
         let postDigits = modText.drop(while: { $0 != "," })
         let commas = modText.filter({ $0 == "," })
@@ -97,6 +150,11 @@ extension TransactionViewController: UITextFieldDelegate {
         if postDigits.count > 3 {return false}
         if digits.count > 9 {return false}
         
+        return true
+    }
+    
+    private func noteTextValidation(_ modText: String) -> Bool {
+        if modText.count > 25 { return false }
         return true
     }
     

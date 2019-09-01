@@ -299,10 +299,10 @@
                                                 </connections>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Kc6-mB-cqa" userLabel="Text Stack">
-                                                <rect key="frame" x="140" y="0.0" width="254" height="160.5"/>
+                                                <rect key="frame" x="140" y="0.0" width="254" height="159"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8C7-Yj-pa7">
-                                                        <rect key="frame" x="5" y="0.0" width="244" height="31.5"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8C7-Yj-pa7">
+                                                        <rect key="frame" x="5" y="0.0" width="244" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -311,7 +311,7 @@
                                                         </connections>
                                                     </textField>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rao-eB-oWh">
-                                                        <rect key="frame" x="0.0" y="40.5" width="254" height="120"/>
+                                                        <rect key="frame" x="0.0" y="39" width="254" height="120"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You owe $10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrl-ax-gMd">
                                                                 <rect key="frame" x="0.0" y="0.0" width="254" height="30"/>
@@ -542,6 +542,6 @@
         <image name="Take" width="38" height="38"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tlw-Et-I9f"/>
+        <segue reference="W90-L8-wGi"/>
     </inferredMetricsTieBreakers>
 </document>
