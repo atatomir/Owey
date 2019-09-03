@@ -87,7 +87,7 @@ extension TransactionListViewController: TransactionViewControllerDelegate {
         transaction.currency = data.currency.rawValue
         transaction.date = data.date
         transaction.note = data.note
-        transaction.value = data.value
+        transaction.value = data.value * (data.kind == .to ? 1.0 : -1.0)
         
         ModelManager.saveContext()
     }

@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "TakeShape.pdf",
+      "filename" : "directionBackground.pdf",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "TakeShape-1.pdf",
+      "filename" : "directionBackground-1.pdf",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "TakeShape-2.pdf",
+      "filename" : "directionBackground-2.pdf",
       "scale" : "3x"
     }
   ],

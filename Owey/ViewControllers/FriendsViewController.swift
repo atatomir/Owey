@@ -180,7 +180,7 @@ extension FriendsViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: width, height: height)
         } else {
             let width = (totalWidth - 30) / 2
-            let height = width * 225 / 170
+            let height = width * 200 / 170
             
             return CGSize(width: width, height: height)
         }

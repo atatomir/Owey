@@ -47,7 +47,6 @@ class FriendDetailsViewController: UIViewController {
         
         // Initialize UI
         navigationItem.largeTitleDisplayMode = .never
-        updateDoneButton()
         backgroundView.setCornerRadius()
         
         
@@ -64,6 +63,8 @@ class FriendDetailsViewController: UIViewController {
             setSummary(hidden: true)
             nameLabel.becomeFirstResponder()
         }
+        
+        updateDoneButton()
         
         // Initialize history
         if let refFriend = refFriend {

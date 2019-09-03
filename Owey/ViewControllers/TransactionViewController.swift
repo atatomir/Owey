@@ -24,6 +24,7 @@ class TransactionViewController: UIViewController {
     @IBOutlet var currencyPicker: UIPickerView!
     @IBOutlet var noteTextField: UITextField!
     @IBOutlet var doneButton: UIBarButtonItem!
+    @IBOutlet var directionButton: UIButton!
     
     // MARK: Properties
     var friend: FriendData!
@@ -46,9 +47,15 @@ class TransactionViewController: UIViewController {
         initializeFields()
         valueField.becomeFirstResponder()
         updateDoneButton()
+        directionButton.setCornerRadius()
     }
     
     // MARK: Actions
+    @IBAction func changeDirection(_ sender: UIButton) {
+        transactionData.kind = transactionData.kind.inverse()
+        directionButton.setTitle(transactionData.kind.rawValue, for: .normal)
+    }
+    
     @IBAction func done(_ sender: UIBarButtonItem) {
         let formatted = valueField.text!.formattedString(char: ".")
         let value = ((formatted as NSString).doubleValue) as Double
@@ -66,13 +73,11 @@ class TransactionViewController: UIViewController {
     }
     
     @IBAction func valueChanged(_ sender: UITextField) {
-        
         updateDoneButton()
     }
     
     
     @IBAction func noteChanged(_ sender: UITextField) {
-        
         updateDoneButton()
     }
     
@@ -82,7 +87,8 @@ class TransactionViewController: UIViewController {
     private func initializeFields() {
         if let friend = friend, let transactionData = transactionData {
             picture.image = friend.image
-            nameLabel.text = transactionData.kind.rawValue + " " + friend.name
+            directionButton.setTitle(transactionData.kind.rawValue, for: .normal)
+            nameLabel.text = friend.name
             currencyPicker.selectRow(
                 Currency.getIndex(transactionData.currency),
                 inComponent: 0,
@@ -96,6 +102,8 @@ class TransactionViewController: UIViewController {
             } else {
                 valueField.text = String(transactionData.value).formattedString(char: ",")
             }
+        } else {
+            fatalError("Could not initialize fields in TransactionViewController")
         }
     }
     

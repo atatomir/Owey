@@ -12,6 +12,14 @@ struct TransactionData {
     enum Kind: String {
         case to = "To"
         case from = "From"
+        
+        func inverse() -> Kind {
+            if self == .to {
+                return .from
+            } else {
+                return .to
+            }
+        }
     }
     
     var currency: Currency
