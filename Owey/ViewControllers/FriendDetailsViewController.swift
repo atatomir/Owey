@@ -9,6 +9,7 @@
 import UIKit
 
 protocol FriendDetailsViewControllerDelegate {
+    // return nil if you want to delete this friend
     func friendDetails(didEndEditing: FriendData?)
 }
 
@@ -27,15 +28,17 @@ class FriendDetailsViewController: UIViewController {
     @IBOutlet var detailsStack: UIStackView!
     @IBOutlet var doneButton: UIBarButtonItem!
     @IBOutlet var backgroundView: UIView!
+    @IBOutlet var deleteButton: UIButton!
     
     // MARK: Properties
-    var friend: FriendData?
+    var friendData: FriendData?
     var refFriend: Friend?
+    var canBeDeleted: Bool = false
     
     var imagePicker = UIImagePickerController()
     var delegate: FriendDetailsViewControllerDelegate?
     
-    var tableViewController: UITableViewController!
+    var tableViewController: TransactionListViewController!
     var tableView: UITableView!
     
     // MARK: Initialization
@@ -49,22 +52,19 @@ class FriendDetailsViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         backgroundView.setCornerRadius()
         
-        
         // Editing or Adding a friend?
-        if let friend = friend {
+        if let friend = friendData {
             profilePicture.image = friend.image
             nameLabel.text = friend.name
             navigationItem.title = friend.name
-            setSummary()
+            setSummary(hidden: false)
         } else {
             profilePicture.image = UIImage(named: "Ricky")
             nameLabel.text = ""
             navigationItem.title = "New friend"
-            setSummary(hidden: true)
             nameLabel.becomeFirstResponder()
+            setSummary(hidden: true)
         }
-        
-        updateDoneButton()
         
         // Initialize history
         if let refFriend = refFriend {
@@ -80,29 +80,15 @@ class FriendDetailsViewController: UIViewController {
             
             self.tableViewContainer.addSubview(tableView)
             tableView.frame = CGRect(x: 0, y: 0, width: tableViewContainer.frame.width, height: tableViewContainer.frame.height)
+            
+            tableViewController.eventNotifier.addObserver(observer: self)
         }
     }
     
-    func setSummary(hidden: Bool = false) {
-        if hidden {
-            owedLabel.isHidden = true
-            owingLabel.isHidden = true
-            settledLabel.isHidden = true
-        }
-        guard let refFriend = refFriend else {return}
-        
-        owingLabel.textColor = ColorManager.redTextOnBlue
-        owedLabel.textColor = ColorManager.greenTextOnBlue
-        settledLabel.textColor = ColorManager.settledColor
-        
-        let owingTexts = OwingList(for: refFriend).allTexts()
-        owingLabel.text = owingTexts.0
-        owedLabel.text = owingTexts.1
-        settledLabel.text = owingTexts.2
-        
-        for item in [owingLabel!, owedLabel!, settledLabel!] {
-            item.isHidden = (item.text == nil)
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        reloadSummary()
+        updateDoneButton()
+        updateDeleteButton()
     }
     
     
@@ -110,14 +96,52 @@ class FriendDetailsViewController: UIViewController {
     //MARK: Actions
     
     @IBAction func done(_ sender: Any) {
-        friend = FriendData(name: nameLabel.text!, image: profilePicture.image!)
-        delegate?.friendDetails(didEndEditing: friend)
+        friendData = FriendData(name: nameLabel.text!, image: profilePicture.image!)
+        delegate?.friendDetails(didEndEditing: friendData)
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func removeFriend(_ sender: Any) {
-        delegate?.friendDetails(didEndEditing: nil)
-        navigationController?.popViewController(animated: true)
+    @IBAction func deleteFriend(_ sender: Any) {
+        
+        if let friend = refFriend {
+            let transactionCount = friend.transactions.count
+            var transactionMessage: String = friend.name
+            transactionMessage += (friend.name.last == "s" ? "'" : "'s")
+            transactionMessage += " transaction" + (transactionCount > 1 ? "s" : "")
+            transactionMessage += " will be deleted"
+            if transactionCount > 1 { transactionMessage += "(\(transactionCount))"}
+            if transactionCount == 0 {
+                transactionMessage = ""
+            }
+            
+            let alert = UIAlertController(
+                title: "Delete \(friend.name)?",
+                message: transactionMessage,
+                preferredStyle: .alert
+            )
+            
+            let cancelAction = UIAlertAction(
+                title: "Cancel",
+                style: .cancel,
+                handler: nil
+            )
+            
+            let deleteAction = UIAlertAction(
+                title: "Delete",
+                style: .destructive,
+                handler: { _ in
+                    self.delegate?.friendDetails(didEndEditing: nil)
+                    self.navigationController?.popViewController(animated: true)
+                }
+            )
+    
+            alert.addAction(cancelAction)
+            alert.addAction(deleteAction)
+            present(alert, animated: true, completion: nil)
+        } else {
+            fatalError("Trying to delete a null refFriend")
+        }
+        
     }
     
     @IBAction func changeImage(_ sender: UITapGestureRecognizer) {
@@ -148,6 +172,42 @@ class FriendDetailsViewController: UIViewController {
         } else {
             doneButton.isEnabled = false
         }
+    }
+    
+    private func updateDeleteButton() {
+        deleteButton.isEnabled = canBeDeleted
+        deleteButton.isHidden = !canBeDeleted
+    }
+    
+    private func setSummary(hidden: Bool = false) {
+        if hidden {
+            owedLabel.isHidden = true
+            owingLabel.isHidden = true
+            settledLabel.isHidden = true
+        }
+        guard let refFriend = refFriend else {return}
+        
+        owingLabel.textColor = ColorManager.redTextOnBlue
+        owedLabel.textColor = ColorManager.greenTextOnBlue
+        settledLabel.textColor = ColorManager.settledColor
+        
+        let owingTexts = OwingList(for: refFriend).allTexts()
+        owingLabel.text = owingTexts.0
+        owedLabel.text = owingTexts.1
+        settledLabel.text = owingTexts.2
+        
+        for item in [owingLabel!, owedLabel!, settledLabel!] {
+            item.isHidden = (item.text == nil)
+        }
+    }
+    
+    private func reloadSummary() {
+        if let _ = friendData {
+            setSummary(hidden: false)
+        } else {
+            setSummary(hidden: true)
+        }
+        
     }
     
 }
@@ -184,3 +244,10 @@ extension FriendDetailsViewController: UIImagePickerControllerDelegate, UINaviga
     }
 }
 
+extension FriendDetailsViewController: Observer {
+    func update(by subject: Subject) {
+        // Update from history view
+        reloadSummary()
+    }
+    
+}

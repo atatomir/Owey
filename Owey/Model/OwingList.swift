@@ -41,14 +41,12 @@ class OwingList {
     }
     
     convenience init() {
-        ModelManager.transactionForFriend = nil
-        ModelManager.refetchData(for: .transaction)
+        ModelManager.refetchData(.transaction, forFriend: nil)
         self.init(transactions: ModelManager.fetchedTransactions())
     }
     
     convenience init(for friend: Friend) {
-        ModelManager.transactionForFriend = friend
-        ModelManager.refetchData(for: .transaction)
+        ModelManager.refetchData(.transaction, forFriend: friend)
         self.init(transactions: ModelManager.fetchedTransactions())
     }
     

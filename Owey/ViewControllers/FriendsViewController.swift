@@ -37,7 +37,7 @@ class FriendsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        ModelManager.refetchData(for: .all)
+        ModelManager.refetchData(.all)
         collectionView.reloadData()
     }
     
@@ -50,8 +50,9 @@ class FriendsViewController: UIViewController {
                 
                 let indexPath = collectionView.indexPath(for: sender as! UICollectionViewCell)!
                 let friend = ModelManager.friend(indexPath.row - 1)
-                detailsVC.friend = friend.toFriendData()
+                detailsVC.friendData = friend.toFriendData()
                 detailsVC.refFriend = friend
+                detailsVC.canBeDeleted = true
                 
             } else {
                 fatalError("Segue destination is not FriendDetailsViewController")
@@ -60,6 +61,7 @@ class FriendsViewController: UIViewController {
         case "NewFriend":
             if let detailsVC = segue.destination as? FriendDetailsViewController {
                 detailsVC.delegate = self
+                detailsVC.canBeDeleted = false
             } else {
                 fatalError("Segue destination is not FriendDetailsViewController")
             }
@@ -79,7 +81,9 @@ class FriendsViewController: UIViewController {
                     date: Date(),
                     kind: (sender as! UIButton).tag == 11 ? .to : .from
                 )
-                transactionVC.friend = friend.toFriendData()
+                transactionVC.friendData = friend.toFriendData()
+                transactionVC.canBeDeleted = false
+                
             } else {
                 fatalError("Segue destination is not TransactionViewController")
             }
@@ -124,6 +128,17 @@ class FriendsViewController: UIViewController {
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         navigationController?.navigationItem.largeTitleDisplayMode = .always
+    }
+    
+    private func deleteFriend(_ friend: Friend) {
+        let transactionCount = friend.transactions.count
+        
+        ModelManager.deleteFriend(friend)
+        ModelManager.saveContext()
+        ModelManager.refetchData(.friend)
+        
+        self.collectionView.reloadData()
+        print("\(transactionCount) transaction deleted with friend \(friend.name)")
     }
     
 }
@@ -193,17 +208,10 @@ extension FriendsViewController: FriendDetailsViewControllerDelegate {
     func friendDetails(didEndEditing friendData: FriendData?) {
         
         if let selected = collectionView.indexPathsForSelectedItems, selected.count > 0 {
-            
             let friend = ModelManager.friend(selected[0].row - 1)
             
             guard let data = friendData else {
-                // Delete an item
-                ModelManager.deleteFriend(friend)
-                ModelManager.saveContext()
-                
-                ModelManager.refetchData(for: .friend)
-                collectionView.reloadData()
-                
+                deleteFriend(friend)
                 return
             }
             
@@ -219,7 +227,7 @@ extension FriendsViewController: FriendDetailsViewControllerDelegate {
         }
         
         ModelManager.saveContext()
-        ModelManager.refetchData(for: .all)
+        ModelManager.refetchData(.all)
 
         collectionView.reloadData()
     }
@@ -228,9 +236,14 @@ extension FriendsViewController: FriendDetailsViewControllerDelegate {
 
 // MARK: Transition View Delegate
 extension FriendsViewController: TransactionViewControllerDelegate {
-    func transactionView(didEndEditing transactionData: TransactionData) {
+    
+    func transactionView(didEndEditing transactionData: TransactionData?) {
         let selected = collectionView.indexPathsForSelectedItems![0]
         let friend = ModelManager.friend(selected.row - 1)
+        
+        guard let transactionData = transactionData else {
+            fatalError("New transaction returned with delete command")
+        }
         
         _ = transactionData.toTransaction(owner: friend)
         ModelManager.saveContext()

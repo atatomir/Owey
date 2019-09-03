@@ -321,29 +321,29 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHF-1Z-GUd">
-                                                                <rect key="frame" x="0.0" y="90" width="219" height="30"/>
-                                                                <state key="normal" title="Remove Friend"/>
-                                                                <connections>
-                                                                    <action selector="removeFriend:" destination="VeT-nb-zQb" eventType="touchUpInside" id="VhZ-gF-f7F"/>
-                                                                </connections>
-                                                            </button>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="5Rj-qr-0Y4" secondAttribute="trailing" id="Hag-Ek-S6N"/>
                                                             <constraint firstAttribute="trailing" secondItem="lrl-ax-gMd" secondAttribute="trailing" id="Vfh-cT-bIr"/>
-                                                            <constraint firstItem="sHF-1Z-GUd" firstAttribute="leading" secondItem="rao-eB-oWh" secondAttribute="leading" id="Y09-wy-C1p"/>
                                                             <constraint firstItem="x92-g2-msx" firstAttribute="leading" secondItem="rao-eB-oWh" secondAttribute="leading" id="Zda-06-4wh"/>
                                                             <constraint firstItem="5Rj-qr-0Y4" firstAttribute="leading" secondItem="rao-eB-oWh" secondAttribute="leading" id="eQu-4e-Zs8"/>
                                                             <constraint firstItem="lrl-ax-gMd" firstAttribute="leading" secondItem="rao-eB-oWh" secondAttribute="leading" id="gdR-UO-PQY"/>
-                                                            <constraint firstAttribute="trailing" secondItem="sHF-1Z-GUd" secondAttribute="trailing" id="x2T-cB-xLB"/>
                                                         </constraints>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHF-1Z-GUd">
+                                                        <rect key="frame" x="0.0" y="64.5" width="219" height="30"/>
+                                                        <color key="tintColor" red="0.90196078431372551" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="Delete Friend">
+                                                            <color key="titleColor" red="0.90196078430000004" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="deleteFriend:" destination="VeT-nb-zQb" eventType="touchUpInside" id="aBj-Gt-9GS"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="8C7-Yj-pa7" secondAttribute="trailing" id="9h5-nm-LOp"/>
                                                     <constraint firstItem="8C7-Yj-pa7" firstAttribute="leading" secondItem="Kc6-mB-cqa" secondAttribute="leading" id="Ta3-pD-SX1"/>
-                                                    <constraint firstAttribute="bottom" secondItem="rao-eB-oWh" secondAttribute="bottom" id="kZV-IP-Smi"/>
                                                     <constraint firstItem="rao-eB-oWh" firstAttribute="leading" secondItem="Kc6-mB-cqa" secondAttribute="leading" id="nha-O3-8nc"/>
                                                     <constraint firstAttribute="trailing" secondItem="rao-eB-oWh" secondAttribute="trailing" id="uMC-HM-jVq"/>
                                                 </constraints>
@@ -387,6 +387,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backgroundView" destination="taB-GV-Lws" id="E6B-Ft-lcc"/>
+                        <outlet property="deleteButton" destination="sHF-1Z-GUd" id="HMk-vB-hyP"/>
                         <outlet property="detailsStack" destination="4hR-XA-2VB" id="Ck5-kB-57Q"/>
                         <outlet property="doneButton" destination="iqB-SF-1QG" id="kvF-kH-5WP"/>
                         <outlet property="nameLabel" destination="8C7-Yj-pa7" id="TRy-sC-x2N"/>

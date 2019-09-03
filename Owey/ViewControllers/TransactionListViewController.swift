@@ -16,6 +16,8 @@ class TransactionListViewController: UITableViewController {
     }
     
     var forFriend: Friend?
+    var eventNotifier: Subject = Subject()
+    
 
     // MARK: Initialization
     override func viewDidLoad() {
@@ -24,8 +26,7 @@ class TransactionListViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        ModelManager.transactionForFriend = forFriend
-        ModelManager.refetchData(for: .transaction)
+        ModelManager.refetchData(.transaction, forFriend: forFriend)
         tableView.reloadData()
     }
     
@@ -37,12 +38,13 @@ class TransactionListViewController: UITableViewController {
             }
             
             guard let controller = segue.destination as? TransactionViewController else {
-                fatalError("Destionation is not a TransactionViewController")
+                fatalError("Destination is not a TransactionViewController")
             }
             
             let transaction = ModelManager.transaction(indexPath.row)
             controller.transactionData = transaction.toTransactionData()
-            controller.friend = transaction.who.toFriendData()
+            controller.friendData = transaction.who.toFriendData()
+            controller.canBeDeleted = true
             controller.delegate = self
             
         default:
@@ -72,24 +74,49 @@ class TransactionListViewController: UITableViewController {
     }
     
     // MARK: Table View Delegate
-
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            deleteTransaction(indexPath: indexPath)
+        }
+        
+        eventNotifier.notify()
+    }
     
+    // MARK: Private methods
+    private func deleteTransaction(indexPath: IndexPath) {
+        let transaction = ModelManager.transaction(indexPath.row)
+        
+        ModelManager.deleteTransaction(transaction)
+        ModelManager.saveContext()
+        ModelManager.refetchData(.transaction, forFriend: forFriend)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
     
 }
 
 extension TransactionListViewController: TransactionViewControllerDelegate {
-    func transactionView(didEndEditing data: TransactionData) {
+    func transactionView(didEndEditing data: TransactionData?) {
         guard let indexPath = tableView.indexPathForSelectedRow else {
             fatalError("No cell selected")
         }
         
         let transaction = ModelManager.transaction(indexPath.row)
+        
+        guard let data = data else {
+            deleteTransaction(indexPath: indexPath)
+            eventNotifier.notify()
+            return
+        }
+        
+        
         transaction.currency = data.currency.rawValue
         transaction.date = data.date
         transaction.note = data.note
         transaction.value = data.value * (data.kind == .to ? 1.0 : -1.0)
         
         ModelManager.saveContext()
+        eventNotifier.notify()
     }
     
     

@@ -18,13 +18,13 @@ class ModelManager {
     }
     
     // MARK: Properties
-    static let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
-    static let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+    private static let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
+    private static let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
     
-    static var friendFetcher: NSFetchedResultsController<Friend>!
+    private static var friendFetcher: NSFetchedResultsController<Friend>!
     
-    static var transactionFetcher: NSFetchedResultsController<Transaction>!
-    static var transactionForFriend: Friend?
+    private static var transactionFetcher: NSFetchedResultsController<Transaction>!
+    private static var transactionForFriend: Friend?
     
     
     
@@ -32,7 +32,9 @@ class ModelManager {
         appDelegate?.saveContext()
     }
     
-    class func refetchData(for type: FetchType) {
+    class func refetchData(_ type: FetchType, forFriend: Friend? = nil) {
+        
+        transactionForFriend = forFriend
         
         if type == .friend || type == .all {
             let request = Friend.fetchRequest() as NSFetchRequest<Friend>

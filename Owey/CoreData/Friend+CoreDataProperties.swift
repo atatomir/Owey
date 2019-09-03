@@ -2,7 +2,7 @@
 //  Friend+CoreDataProperties.swift
 //  Owey
 //
-//  Created by Alex Tatomir on 18/08/2019.
+//  Created by Alex Tatomir on 03/09/2019.
 //  Copyright © 2019 Alex Tatomir. All rights reserved.
 //
 //

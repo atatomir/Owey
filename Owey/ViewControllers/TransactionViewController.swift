@@ -9,7 +9,8 @@
 import UIKit
 
 protocol TransactionViewControllerDelegate {
-    func transactionView(didEndEditing: TransactionData)
+    // return nil if you want to delete this transaction
+    func transactionView(didEndEditing: TransactionData?)
 }
 
 /* Initialize this view controller by providing a FriendData and a transactionData
@@ -25,13 +26,16 @@ class TransactionViewController: UIViewController {
     @IBOutlet var noteTextField: UITextField!
     @IBOutlet var doneButton: UIBarButtonItem!
     @IBOutlet var directionButton: UIButton!
+    @IBOutlet var deleteButton: UIButton!
     
     // MARK: Properties
-    var friend: FriendData!
+    var friendData: FriendData!
     var transactionData: TransactionData!
+    var canBeDeleted: Bool = false
     
     private var pickedCurrency: Currency = Currency.allCases[0]
     var delegate: TransactionViewControllerDelegate?
+    
     
     // MARK: Initialization
     override func viewDidLoad() {
@@ -47,10 +51,17 @@ class TransactionViewController: UIViewController {
         initializeFields()
         valueField.becomeFirstResponder()
         updateDoneButton()
+        updateDeleteButton()
         directionButton.setCornerRadius()
     }
     
     // MARK: Actions
+    
+    @IBAction func deleteTransaction(_ sender: Any) {
+        delegate?.transactionView(didEndEditing: nil)
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func changeDirection(_ sender: UIButton) {
         transactionData.kind = transactionData.kind.inverse()
         directionButton.setTitle(transactionData.kind.rawValue, for: .normal)
@@ -85,7 +96,7 @@ class TransactionViewController: UIViewController {
     
     // MARK: Private methods
     private func initializeFields() {
-        if let friend = friend, let transactionData = transactionData {
+        if let friend = friendData, let transactionData = transactionData {
             picture.image = friend.image
             directionButton.setTitle(transactionData.kind.rawValue, for: .normal)
             nameLabel.text = friend.name
@@ -125,6 +136,11 @@ class TransactionViewController: UIViewController {
         }
         
         doneButton.isEnabled = shouldBeEnabled()
+    }
+
+    private func updateDeleteButton() {
+        deleteButton.isEnabled = canBeDeleted
+        deleteButton.isHidden = !deleteButton.isEnabled
     }
     
 }
