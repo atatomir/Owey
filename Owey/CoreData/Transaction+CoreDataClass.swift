@@ -32,6 +32,17 @@ public class Transaction: NSManagedObject {
         )
     }
     
+    func reversedTransaction() -> Transaction {
+        let transaction = ModelManager.newTransaction()
+        transaction.currency = self.currency
+        transaction.value = -self.value
+        transaction.date = Date()
+        transaction.note = "Settle \"" + self.note + "\""
+        transaction.who = self.who
+        
+        return transaction
+    }
+    
     @objc var headerStringDate: String {
         return date.toString(format: "dd MMMM yyyy")
     }

@@ -141,4 +141,8 @@ extension ModelManager {
     class func fetchedTransactions() -> [Transaction] {
         return transactionFetcher.fetchedObjects!
     }
+    
+    class func indexPath(forTransaction transaction: Transaction) -> IndexPath? {
+        return transactionFetcher.indexPath(forObject: transaction)
+    }
 }

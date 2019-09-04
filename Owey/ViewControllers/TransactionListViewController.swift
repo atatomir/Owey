@@ -18,11 +18,11 @@ class TransactionListViewController: UITableViewController {
     var forFriend: Friend?
     var eventNotifier: Subject = Subject()
     
-
+    
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,14 +84,38 @@ class TransactionListViewController: UITableViewController {
     }
     
     // MARK: Table View Delegate
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        if editingStyle == .delete {
-            deleteTransaction(indexPath: indexPath)
+        let deleteAction = UITableViewRowAction(
+            style: .destructive,
+            title: "Delete"
+        ) { (action, indexPath) in
+            self.deleteTransaction(indexPath: indexPath)
         }
         
-        eventNotifier.notify()
+        let settleAction = UITableViewRowAction(
+            style: .normal,
+            title: "Settle up"
+        ) { (action, indexPath) in
+            self.settleTransaction(indexPath: indexPath)
+        }
+        
+        settleAction.backgroundColor = ColorManager.settledColor
+        
+        return [deleteAction, settleAction]
+        
     }
+    
+    //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //
+    //        if editingStyle == .delete {
+    //            deleteTransaction(indexPath: indexPath)
+    //        }
+    //
+    //        eventNotifier.notify()
+    //    }
+    
+    
     
     // MARK: Private methods
     private func deleteTransaction(indexPath: IndexPath) {
@@ -110,6 +134,27 @@ class TransactionListViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
+        eventNotifier.notify()
+    }
+    
+    private func settleTransaction(indexPath: IndexPath) {
+        let transaction = ModelManager.transaction(indexPath)
+        let reversed = transaction.reversedTransaction()
+        ModelManager.saveContext()
+        ModelManager.refetchData(.transaction, forFriend: forFriend)
+        
+        guard let indexPath = ModelManager.indexPath(forTransaction: reversed) else {
+            fatalError("Reversed transaction not in fetched results")
+        }
+        
+        if ModelManager.transactionCount(in: indexPath.section) == 1 {
+            tableView.insertSections([indexPath.section], with: .automatic)
+        } else {
+            tableView.insertRows(at: [indexPath], with: .automatic)
+        }
+        
+        
+        eventNotifier.notify()
     }
     
 }
@@ -124,10 +169,8 @@ extension TransactionListViewController: TransactionViewControllerDelegate {
         
         guard let data = data else {
             deleteTransaction(indexPath: indexPath)
-            eventNotifier.notify()
             return
         }
-        
         
         transaction.currency = data.currency.rawValue
         transaction.date = data.date
