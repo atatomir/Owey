@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zfx-bg-aQA" userLabel="Main Stack">
-                                <rect key="frame" x="10" y="54" width="394" height="364"/>
+                                <rect key="frame" x="10" y="54" width="394" height="300"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" image="imageView:Iu9-yc-fdK:image" translatesAutoresizingMaskIntoConstraints="NO" id="Iu9-yc-fdK" customClass="RoundedImageView" customModule="Owey" customModuleProvider="target">
                                         <rect key="frame" x="132" y="0.0" width="130" height="130"/>
@@ -60,16 +60,25 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yZv-SR-c04" userLabel="Currency Stack">
-                                        <rect key="frame" x="0.0" y="180" width="394" height="100"/>
+                                        <rect key="frame" x="0.0" y="180" width="394" height="36"/>
                                         <subviews>
-                                            <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="dNx-DZ-o63">
-                                                <rect key="frame" x="0.0" y="0.0" width="79" height="100"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h49-hR-F6N" userLabel="DirectionButton">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="36"/>
+                                                <color key="backgroundColor" red="0.031372549020000001" green="0.29803921570000003" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="hrU-EL-pfg"/>
+                                                    <constraint firstAttribute="width" constant="60" id="vmF-QQ-Sln"/>
                                                 </constraints>
-                                            </pickerView>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                                <state key="normal" title="Currency">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="changeCurrency:" destination="dFp-YG-fWl" eventType="touchUpInside" id="uaK-oa-0LJ"/>
+                                                </connections>
+                                            </button>
                                             <textField opaque="NO" tag="101" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0,00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HoY-8h-zle">
-                                                <rect key="frame" x="89" y="0.0" width="305" height="100"/>
+                                                <rect key="frame" x="70" y="0.0" width="324" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 <connections>
@@ -77,12 +86,9 @@
                                                 </connections>
                                             </textField>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="dNx-DZ-o63" firstAttribute="width" secondItem="yZv-SR-c04" secondAttribute="width" multiplier="2/10" id="WwR-xk-UBk"/>
-                                        </constraints>
                                     </stackView>
                                     <textField opaque="NO" tag="102" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IVa-VX-0qi">
-                                        <rect key="frame" x="0.0" y="290" width="394" height="34"/>
+                                        <rect key="frame" x="0.0" y="226" width="394" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <connections>
@@ -90,7 +96,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8c-iS-KZX">
-                                        <rect key="frame" x="10" y="334" width="374" height="30"/>
+                                        <rect key="frame" x="10" y="270" width="374" height="30"/>
                                         <color key="tintColor" red="0.90196078430000004" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Delete Transaction"/>
                                         <connections>
@@ -126,7 +132,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="currencyPicker" destination="dNx-DZ-o63" id="mCs-rm-wWv"/>
+                        <outlet property="currencyButton" destination="h49-hR-F6N" id="waR-Bt-Q9X"/>
                         <outlet property="deleteButton" destination="j8c-iS-KZX" id="aza-Qd-YtX"/>
                         <outlet property="directionButton" destination="eG2-gV-AuI" id="45G-Aw-NN1"/>
                         <outlet property="doneButton" destination="xsf-nR-yzP" id="wyI-03-Onf"/>

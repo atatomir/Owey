@@ -17,6 +17,11 @@ class ResetViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func pickCurrency(_ sender: Any) {
+        let alert = CurrencyPickerController("Currency")
+        
+        present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func handleReset(_ sender: UIButton) {
         

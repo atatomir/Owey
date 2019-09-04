@@ -15,6 +15,7 @@
 		F4395FB9230AC39C004142D3 /* String+FormattedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4395FB8230AC39C004142D3 /* String+FormattedString.swift */; };
 		F4395FBB230AC6B3004142D3 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4395FBA230AC6B3004142D3 /* ResetViewController.swift */; };
 		F44708A4231F981300A3BDE5 /* Date+ToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44708A3231F981300A3BDE5 /* Date+ToString.swift */; };
+		F44708A6231FA6D500A3BDE5 /* CurrencyPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44708A5231FA6D500A3BDE5 /* CurrencyPickerController.swift */; };
 		F46A5AEB231E74D700BD6513 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A5AE9231E74D700BD6513 /* Transaction+CoreDataProperties.swift */; };
 		F46A5AEC231E74D700BD6513 /* Friend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A5AEA231E74D700BD6513 /* Friend+CoreDataProperties.swift */; };
 		F46A5AEF231E8E0200BD6513 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A5AEE231E8E0200BD6513 /* Observer.swift */; };
@@ -48,6 +49,7 @@
 		F4395FB8230AC39C004142D3 /* String+FormattedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FormattedString.swift"; sourceTree = "<group>"; };
 		F4395FBA230AC6B3004142D3 /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
 		F44708A3231F981300A3BDE5 /* Date+ToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ToString.swift"; sourceTree = "<group>"; };
+		F44708A5231FA6D500A3BDE5 /* CurrencyPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPickerController.swift; sourceTree = "<group>"; };
 		F46A5AE9231E74D700BD6513 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F46A5AEA231E74D700BD6513 /* Friend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F46A5AEE231E8E0200BD6513 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				F4154B3F230A82DA005C163C /* TransactionListViewController.swift */,
 				F4395FB4230A8F10004142D3 /* HistoryViewController.swift */,
 				F4395FBA230AC6B3004142D3 /* ResetViewController.swift */,
+				F44708A5231FA6D500A3BDE5 /* CurrencyPickerController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				F4395FB5230A8F10004142D3 /* HistoryViewController.swift in Sources */,
 				F4B224DB2309E974003E5611 /* UIRoundedImageView.swift in Sources */,
 				F46A5AEF231E8E0200BD6513 /* Observer.swift in Sources */,
+				F44708A6231FA6D500A3BDE5 /* CurrencyPickerController.swift in Sources */,
 				F4781A00230924F7004C8FF3 /* UIView+RoundedCorners.swift in Sources */,
 				F47819F723081EBE004C8FF3 /* ColorManager.swift in Sources */,
 				F47819FD23082A08004C8FF3 /* FriendsViewController.swift in Sources */,

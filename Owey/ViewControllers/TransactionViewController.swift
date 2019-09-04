@@ -22,17 +22,18 @@ class TransactionViewController: UIViewController {
     @IBOutlet var valueField: UITextField!
     @IBOutlet var picture: RoundedImageView!
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var currencyPicker: UIPickerView!
     @IBOutlet var noteTextField: UITextField!
     @IBOutlet var doneButton: UIBarButtonItem!
     @IBOutlet var directionButton: UIButton!
     @IBOutlet var deleteButton: UIButton!
+    @IBOutlet var currencyButton: UIButton!
     
     // MARK: Properties
     var friendData: FriendData!
     var transactionData: TransactionData!
     var canBeDeleted: Bool = false
     
+    private var currencyPicker: CurrencyPickerController!
     private var pickedCurrency: Currency = Currency.allCases[0]
     var delegate: TransactionViewControllerDelegate?
     
@@ -44,7 +45,7 @@ class TransactionViewController: UIViewController {
         // Delegates
         valueField.delegate = self
         noteTextField.delegate = self
-        currencyPicker.dataSource = self
+        currencyPicker = CurrencyPickerController("Currency")
         currencyPicker.delegate = self
         
         // Initialize
@@ -52,10 +53,17 @@ class TransactionViewController: UIViewController {
         valueField.becomeFirstResponder()
         updateDoneButton()
         updateDeleteButton()
+        
+        // Rounded views
         directionButton.setCornerRadius()
+        currencyButton.setCornerRadius()
     }
     
     // MARK: Actions
+    
+    @IBAction func changeCurrency(_ sender: UIButton) {
+        present(currencyPicker, animated: true, completion: nil)
+    }
     
     @IBAction func deleteTransaction(_ sender: Any) {
         delegate?.transactionView(didEndEditing: nil)
@@ -100,12 +108,8 @@ class TransactionViewController: UIViewController {
             picture.image = friend.image
             directionButton.setTitle(transactionData.kind.rawValue, for: .normal)
             nameLabel.text = friend.name
-            currencyPicker.selectRow(
-                Currency.getIndex(transactionData.currency),
-                inComponent: 0,
-                animated: true
-            )
             pickedCurrency = transactionData.currency
+            currencyButton.setTitle(pickedCurrency.rawValue, for: .normal)
             noteTextField.text = transactionData.note
             
             if transactionData.value < 0 {
@@ -189,20 +193,12 @@ extension TransactionViewController: UITextFieldDelegate {
     
 }
 
-extension TransactionViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+extension TransactionViewController: CurrencyPickerControllerDelegate {
+    func currecyPicker(didChoose: Currency?) {
+        if let currency = didChoose {
+            pickedCurrency = currency
+            currencyButton.setTitle(currency.rawValue, for: .normal)
+        }
     }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Currency.allCases.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Currency.allCases[row].rawValue
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickedCurrency = Currency.allCases[row]
-    }
+
 }

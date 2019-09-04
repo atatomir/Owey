@@ -495,11 +495,21 @@
                                     <action selector="handleReset:" destination="Xrp-ef-LRW" eventType="touchUpInside" id="dRK-ue-fMR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpW-vW-0tV">
+                                <rect key="frame" x="127" y="191" width="160" height="42"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="Pick currency"/>
+                                <connections>
+                                    <action selector="pickCurrency:" destination="Xrp-ef-LRW" eventType="touchUpInside" id="Qwh-aj-2TE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="SsB-AF-WbK" firstAttribute="centerX" secondItem="uCM-04-zab" secondAttribute="centerX" id="8Gm-ul-4oF"/>
                             <constraint firstItem="SsB-AF-WbK" firstAttribute="centerY" secondItem="uCM-04-zab" secondAttribute="centerY" id="FLm-l7-sqS"/>
+                            <constraint firstItem="wpW-vW-0tV" firstAttribute="top" secondItem="xCf-VS-4hM" secondAttribute="top" constant="147" id="ei2-NH-ak8"/>
+                            <constraint firstItem="wpW-vW-0tV" firstAttribute="centerX" secondItem="SsB-AF-WbK" secondAttribute="centerX" id="htT-oN-SSn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xCf-VS-4hM"/>
                     </view>
@@ -507,7 +517,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pih-p3-62O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-223.18840579710147" y="829.6875"/>
+            <point key="canvasLocation" x="-107" y="831"/>
         </scene>
         <!--History-->
         <scene sceneID="pUe-Ry-1qh">
