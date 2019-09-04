@@ -15,6 +15,7 @@ class SummaryCell: UICollectionViewCell {
     @IBOutlet weak var owingLabel: UILabel!
     @IBOutlet weak var owedLabel: UILabel!
     @IBOutlet weak var settledLabel: UILabel!
+    @IBOutlet weak var background: UIView!
     
     // MARK: Properties
     
@@ -22,23 +23,27 @@ class SummaryCell: UICollectionViewCell {
     // MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        contentView.setCornerRadius()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
-        contentView.setCornerRadius()
     }
     
-    func setSummary() {
+    func updateUI() {
+        contentView.setCornerRadius(radius: 10)
+        background.setGradient()
+        setSummary()
+    }
+    
+
+    // MARK: Private methods
+    private func setSummary() {
         _ = self.contentView
         
         owingLabel.textColor = ColorManager.redTextOnBlue
         owedLabel.textColor = ColorManager.greenTextOnBlue
         settledLabel.textColor = ColorManager.settledColor
-    
+        
         let owingTexts = OwingList().allTexts()
         owingLabel.text = owingTexts.0
         owedLabel.text = owingTexts.1
@@ -48,5 +53,4 @@ class SummaryCell: UICollectionViewCell {
             item.isHidden = (item.text == nil)
         }
     }
-    
 }

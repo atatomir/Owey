@@ -17,6 +17,7 @@ class FriendCell: UICollectionViewCell {
     @IBOutlet weak var owingLabel: UILabel!
     @IBOutlet weak var owedLabel: UILabel!
     @IBOutlet weak var settledLabel: UILabel!
+    @IBOutlet weak var background: UIView!
     
     // MARK: Properties
     var refFriend: Friend!
@@ -35,20 +36,22 @@ class FriendCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.setCornerRadius()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        contentView.setCornerRadius()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    func updateUI() {
         picture.updateRoundedCorners()
+        contentView.setCornerRadius(radius: 20)
+        background.setGradient()
+        setSummary()
     }
     
-    func setSummary() {
+    // MARK: Private methods
+    
+    private func setSummary() {
         _ = self.contentView
         
         owingLabel.textColor = ColorManager.redTextOnBlue
@@ -65,5 +68,7 @@ class FriendCell: UICollectionViewCell {
         }
     }
     
-    // MARK: Private methods
+    
+    
+   
 }

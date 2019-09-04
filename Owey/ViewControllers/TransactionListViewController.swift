@@ -17,6 +17,7 @@ class TransactionListViewController: UITableViewController {
     
     var forFriend: Friend?
     var eventNotifier: Subject = Subject()
+    var nextAvailableTime: Date = Date()
     
     
     // MARK: Initialization
@@ -103,17 +104,32 @@ class TransactionListViewController: UITableViewController {
         settleAction.backgroundColor = ColorManager.settledColor
         
         return [deleteAction, settleAction]
-        
     }
     
-    //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    //
-    //        if editingStyle == .delete {
-    //            deleteTransaction(indexPath: indexPath)
-    //        }
-    //
-    //        eventNotifier.notify()
-    //    }
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        // Initial setup
+        let currentDate = Date()
+        nextAvailableTime = max(nextAvailableTime, currentDate)
+        
+        let duration = 0.25
+        let difference = duration / 4
+        let delay = DateInterval(start: currentDate, end: nextAvailableTime).duration
+        nextAvailableTime = currentDate.addingTimeInterval(delay).addingTimeInterval(difference)
+        
+        cell.alpha = 0.0
+        cell.center.y -= 15
+        
+        // Animation
+        UIView.animate(
+            withDuration: duration,
+            delay: delay,
+            options: [.curveEaseOut],
+            animations: {
+                cell.alpha = 1.0
+                cell.center.y += 15
+        }, completion: nil)
+    }
     
     
     

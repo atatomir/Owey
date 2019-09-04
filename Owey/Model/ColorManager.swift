@@ -10,11 +10,9 @@ import Foundation
 import UIKit
 
 class ColorManager {
-    static let barColor = UIColor(red: 8, green: 76, blue: 96, alpha: 100)
-    static let cellColor = UIColor(red: 6, green: 52, blue: 67, alpha: 100)
     
-    static let greenButtonColor = UIColor(red: 64, green: 133, blue: 46, alpha: 100)
-    static let redButtonColor = UIColor(red: 218.0 / 255, green: 89.0 / 255, blue: 71.0 / 255, alpha: 1)
+    static let gradientUpColor = UIColor(red: 55.0 / 255, green: 34.0 / 255, blue: 72.0 / 255, alpha: 1)
+    static let gradientDownColor = UIColor(red: 44.0 / 255, green: 87.0 / 255, blue: 132.0 / 255, alpha: 1)
     
     static let redTextOnBlue = UIColor(red: 230.0 / 255, green: 56.0 / 255, blue: 56.0 / 255, alpha: 1)
     static let redTextOnGrey = UIColor(red: 170.0 / 255, green: 40.0 / 255, blue: 34.0 / 255, alpha: 1)

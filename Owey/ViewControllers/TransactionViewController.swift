@@ -54,6 +54,9 @@ class TransactionViewController: UIViewController {
         updateDoneButton()
         updateDeleteButton()
         
+        directionButton.addGradientLayer(cornerRadius: 10)
+        currencyButton.addGradientLayer(cornerRadius: 10)
+        
         // Rounded views
         directionButton.setCornerRadius()
         currencyButton.setCornerRadius()

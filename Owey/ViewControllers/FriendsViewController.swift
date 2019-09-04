@@ -160,7 +160,6 @@ extension FriendsViewController: UICollectionViewDataSource {
                 fatalError("First cell in FriendsCollectionView is not a SummaryCell")
             }
             
-            cell.setSummary()
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendCell", for: indexPath) as? FriendCell else {
@@ -170,12 +169,22 @@ extension FriendsViewController: UICollectionViewDataSource {
             let fetchedFriend = ModelManager.friend(indexPath.row - 1)
             cell.friend = fetchedFriend.toFriendData()
             cell.refFriend = fetchedFriend
-            
-            cell.setSummary()
+
             return cell
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if let cell = cell as? FriendCell {
+            cell.updateUI()
+        }
+        
+        if let cell = cell as? SummaryCell {
+            cell.updateUI()
+        }
+    }
+
 }
 
 // MARK: Collection View Delegate
@@ -190,7 +199,7 @@ extension FriendsViewController: UICollectionViewDelegateFlowLayout {
         
         if indexPath.row == 0 {
             let width = totalWidth - 20
-            let height = width * 40 / 350
+            let height = width * 50 / 350
             
             return CGSize(width: width, height: height)
         } else {

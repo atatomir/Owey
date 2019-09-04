@@ -27,7 +27,7 @@ class FriendDetailsViewController: UIViewController {
     @IBOutlet var tableViewContainer: UIView!
     @IBOutlet var detailsStack: UIStackView!
     @IBOutlet var doneButton: UIBarButtonItem!
-    @IBOutlet var backgroundView: UIView!
+    @IBOutlet var background: UIView!
     @IBOutlet var deleteButton: UIButton!
     @IBOutlet var separationLine: UIView!
     
@@ -51,8 +51,6 @@ class FriendDetailsViewController: UIViewController {
         
         // Initialize UI
         navigationItem.largeTitleDisplayMode = .never
-        backgroundView.setCornerRadius()
-        separationLine.setCornerRadius()
         
         // Editing or Adding a friend?
         if let friend = friendData {
@@ -93,7 +91,19 @@ class FriendDetailsViewController: UIViewController {
         updateDeleteButton()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateUI()
+    }
     
+    func updateUI() {
+        profilePicture.updateRoundedCorners()
+        
+        background.setCornerRadius(radius: 20)
+        separationLine.setCornerRadius(radius: 10)
+        
+        background.setGradient()
+    }
     
     //MARK: Actions
     
