@@ -29,6 +29,7 @@ class FriendDetailsViewController: UIViewController {
     @IBOutlet var doneButton: UIBarButtonItem!
     @IBOutlet var backgroundView: UIView!
     @IBOutlet var deleteButton: UIButton!
+    @IBOutlet var separationLine: UIView!
     
     // MARK: Properties
     var friendData: FriendData?
@@ -51,6 +52,7 @@ class FriendDetailsViewController: UIViewController {
         // Initialize UI
         navigationItem.largeTitleDisplayMode = .never
         backgroundView.setCornerRadius()
+        separationLine.setCornerRadius()
         
         // Editing or Adding a friend?
         if let friend = friendData {

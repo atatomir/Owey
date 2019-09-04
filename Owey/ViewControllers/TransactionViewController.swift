@@ -163,6 +163,11 @@ extension TransactionViewController: UITextFieldDelegate {
         fatalError("TextField not recognized")
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     private func valueTextValidation(_ modText: String) -> Bool {
         // Maximum 9 digits, 1 comma, 2 digits after comma
         let digits = modText.filter({ $0.isNumber })

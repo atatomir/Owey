@@ -21,14 +21,6 @@ class TransactionCell: UITableViewCell {
     var friend: FriendData? { didSet { initializeData() } }
     var transaction: TransactionData? { didSet { initializeData() } }
     
-    let formatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.dateFormat = "dd MM yyyy HH:mm"
-        return formatter
-    }()
-    
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,8 +43,8 @@ class TransactionCell: UITableViewCell {
         if let friend = friend, let transaction = transaction {
             picture.image = friend.image
             titleLabel.text = transaction.note
-            infoLabel.text = transaction.currency.rawValue + " " + String(transaction.value) + " " + transaction.kind.rawValue.lowercased() + " " + friend.name
-            dateLabel.text = formatter.string(from: transaction.date)
+            infoLabel.text = transaction.currency.rawValue + String(transaction.value) + " " + transaction.kind.rawValue.lowercased() + " " + friend.name
+            dateLabel.text = transaction.date.toString(format: "hh:mm")
             
             if transaction.kind == .from {
                 infoLabel.textColor = ColorManager.greenTextOnGrey

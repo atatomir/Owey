@@ -17,6 +17,7 @@ import CoreData
 
 @objc(Transaction)
 public class Transaction: NSManagedObject {
+
     func toTransactionData() -> TransactionData {
         guard let actualCurrency = Currency(rawValue: currency) else {
             fatalError("Currency not found")
@@ -29,5 +30,9 @@ public class Transaction: NSManagedObject {
             date: date,
             kind: (value > 0 ? .to : .from)
         )
+    }
+    
+    @objc var headerStringDate: String {
+        return date.toString(format: "dd MMMM yyyy")
     }
 }

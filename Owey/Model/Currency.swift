@@ -14,6 +14,9 @@ enum Currency: String, CaseIterable {
     case USD = "$"
     case EUR = "€"
     case GBP = "£"
+    case RUB = "₽"
+    case CHF = "CHF"
+    case TRY = "₺"
     
     static func getIndex(_ currency: Currency) -> Int {
         return Currency.allCases.firstIndex(of: currency)!

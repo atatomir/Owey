@@ -41,7 +41,7 @@ class TransactionListViewController: UITableViewController {
                 fatalError("Destination is not a TransactionViewController")
             }
             
-            let transaction = ModelManager.transaction(indexPath.row)
+            let transaction = ModelManager.transaction(indexPath)
             controller.transactionData = transaction.toTransactionData()
             controller.friendData = transaction.who.toFriendData()
             controller.canBeDeleted = true
@@ -54,11 +54,11 @@ class TransactionListViewController: UITableViewController {
     
     // MARK: Table View Data Source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return ModelManager.transactionSections()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ModelManager.transactionCount()
+        return ModelManager.transactionCount(in: section)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,11 +66,21 @@ class TransactionListViewController: UITableViewController {
             fatalError("dequeued cell is not a TransactionCell")
         }
         
-        let transaction =  ModelManager.transaction(indexPath.row)
+        let transaction =  ModelManager.transaction(indexPath)
         cell.transaction = transaction.toTransactionData()
         cell.friend = transaction.who.toFriendData()
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let sectionDate = ModelManager.transaction(IndexPath(row: 0, section: section)).date
+        if sectionDate.toString(format: "yyyy") == Date().toString(format: "yyyy") {
+            return sectionDate.toString(format: "MMMM dd")
+        } else {
+            return sectionDate.toString(format: "MMMM dd yyyy")
+        }
+        
     }
     
     // MARK: Table View Delegate
@@ -85,12 +95,21 @@ class TransactionListViewController: UITableViewController {
     
     // MARK: Private methods
     private func deleteTransaction(indexPath: IndexPath) {
-        let transaction = ModelManager.transaction(indexPath.row)
+        let transaction = ModelManager.transaction(indexPath)
+        let emptySection = (ModelManager.transactionCount(in: indexPath.section) == 1)
         
+        // Update the model
         ModelManager.deleteTransaction(transaction)
         ModelManager.saveContext()
         ModelManager.refetchData(.transaction, forFriend: forFriend)
-        tableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        // Update the view
+        if emptySection {
+            tableView.deleteSections(IndexSet(arrayLiteral: indexPath.section), with: .automatic)
+        } else {
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
     }
     
 }
@@ -101,7 +120,7 @@ extension TransactionListViewController: TransactionViewControllerDelegate {
             fatalError("No cell selected")
         }
         
-        let transaction = ModelManager.transaction(indexPath.row)
+        let transaction = ModelManager.transaction(indexPath)
         
         guard let data = data else {
             deleteTransaction(indexPath: indexPath)

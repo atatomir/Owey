@@ -71,7 +71,7 @@ class ModelManager {
             transactionFetcher = NSFetchedResultsController<Transaction>(
                 fetchRequest: request,
                 managedObjectContext: persistentContainer.viewContext,
-                sectionNameKeyPath: nil,
+                sectionNameKeyPath: #keyPath(Transaction.headerStringDate),
                 cacheName: nil
             )
             
@@ -116,12 +116,22 @@ extension ModelManager {
         return Transaction(entity: Transaction.entity(), insertInto: persistentContainer.viewContext)
     }
     
-    class func transaction(_ index: Int) -> Transaction {
-        return transactionFetcher.object(at: IndexPath(row: index, section: 0))
+    class func transaction(_ indexPath: IndexPath) -> Transaction {
+        return transactionFetcher.object(at: indexPath)
     }
     
-    class func transactionCount() -> Int {
-        return transactionFetcher.fetchedObjects?.count ?? 0
+    class func transactionSections() -> Int {
+        guard let sections = transactionFetcher.sections else {
+            fatalError("Sections coulnd not be retrieved")
+        }
+        return sections.count
+    }
+    
+    class func transactionCount(in section: Int) -> Int {
+        guard let sections = transactionFetcher.sections else {
+            fatalError("Sections coulnd not be retrieved")
+        }
+        return sections[section].numberOfObjects
     }
     
     class func deleteTransaction(_ transaction: Transaction) {

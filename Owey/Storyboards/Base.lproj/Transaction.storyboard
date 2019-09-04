@@ -81,10 +81,10 @@
                                             <constraint firstItem="dNx-DZ-o63" firstAttribute="width" secondItem="yZv-SR-c04" secondAttribute="width" multiplier="2/10" id="WwR-xk-UBk"/>
                                         </constraints>
                                     </stackView>
-                                    <textField opaque="NO" tag="102" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IVa-VX-0qi">
+                                    <textField opaque="NO" tag="102" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IVa-VX-0qi">
                                         <rect key="frame" x="0.0" y="290" width="394" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <connections>
                                             <action selector="noteChanged:" destination="dFp-YG-fWl" eventType="editingChanged" id="F9G-W3-KqK"/>
                                         </connections>
@@ -117,7 +117,7 @@
                         <viewLayoutGuide key="safeArea" id="kWG-t0-L0t"/>
                     </view>
                     <navigationItem key="navigationItem" title="Transaction" largeTitleDisplayMode="never" id="fK2-gJ-MHz">
-                        <barButtonItem key="rightBarButtonItem" title="Done" style="plain" id="xsf-nR-yzP">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="xsf-nR-yzP">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="done:" destination="dFp-YG-fWl" id="gdS-pp-rUj"/>
@@ -144,7 +144,7 @@
         <scene sceneID="1ij-jK-0JP">
             <objects>
                 <tableViewController storyboardIdentifier="TransactionList" title="TransactionList" id="90N-N0-F2J" customClass="TransactionListViewController" customModule="Owey" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dwm-mM-ZqT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" springLoaded="YES" id="Dwm-mM-ZqT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
