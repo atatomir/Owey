@@ -42,14 +42,21 @@ class FriendCell: UICollectionViewCell {
         super.init(coder: coder)
     }
     
-    func updateUI() {
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        addShadow(radius: 20)
+        updateUI()
+    }
+    
+    
+    // MARK: Private methods
+    
+    private func updateUI() {
         picture.updateRoundedCorners()
         contentView.setCornerRadius(radius: 20)
         background.setGradient()
         setSummary()
     }
-    
-    // MARK: Private methods
     
     private func setSummary() {
         _ = self.contentView

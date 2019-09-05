@@ -29,14 +29,21 @@ class SummaryCell: UICollectionViewCell {
         super.init(coder: coder)
     }
     
-    func updateUI() {
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        
+        addShadow(radius: 10)
+        updateUI()
+    }
+    
+
+    // MARK: Private methods
+    private func updateUI() {
         contentView.setCornerRadius(radius: 10)
         background.setGradient()
         setSummary()
     }
     
-
-    // MARK: Private methods
     private func setSummary() {
         _ = self.contentView
         

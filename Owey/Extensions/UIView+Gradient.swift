@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 extension UIView {
+    
     func addGradientLayer(cornerRadius: CGFloat = 0.00) {
         let view = UIView()
         
@@ -26,8 +27,14 @@ extension UIView {
         
         gradient.colors = [ColorManager.gradientUpColor, ColorManager.gradientDownColor].map({$0.cgColor})
         gradient.frame = self.bounds
-    
-        self.layer.addSublayer(gradient)
+        
+        if let already = layer.sublayers, already.count >= 1 {
+            layer.replaceSublayer(already[0], with: gradient)
+        } else {
+            self.layer.addSublayer(gradient)
+        }
     }
     
 }
+
+

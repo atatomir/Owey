@@ -107,7 +107,17 @@ class TransactionListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
+        animateView(cell)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        animateView(view)
+    }
+    
+    
+    
+    // MARK: Private methods
+    private func animateView(_ cell: UIView) {
         // Initial setup
         let currentDate = Date()
         nextAvailableTime = max(nextAvailableTime, currentDate)
@@ -131,9 +141,6 @@ class TransactionListViewController: UITableViewController {
         }, completion: nil)
     }
     
-    
-    
-    // MARK: Private methods
     private func deleteTransaction(indexPath: IndexPath) {
         let transaction = ModelManager.transaction(indexPath)
         let emptySection = (ModelManager.transactionCount(in: indexPath.section) == 1)

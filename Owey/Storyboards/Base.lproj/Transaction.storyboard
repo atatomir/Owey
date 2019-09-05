@@ -110,7 +110,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Iu9-yc-fdK" firstAttribute="leading" secondItem="j8c-iS-KZX" secondAttribute="trailing" constant="10" id="SwH-dl-FIZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="j8c-iS-KZX" secondAttribute="trailing" id="9ua-Ay-aJl"/>
                                     <constraint firstItem="kSD-YX-kU7" firstAttribute="width" secondItem="zfx-bg-aQA" secondAttribute="width" id="TaO-pX-umc"/>
                                     <constraint firstItem="yZv-SR-c04" firstAttribute="width" secondItem="zfx-bg-aQA" secondAttribute="width" id="bSE-pB-oUC"/>
                                     <constraint firstItem="j8c-iS-KZX" firstAttribute="leading" secondItem="zfx-bg-aQA" secondAttribute="leading" constant="10" id="ldD-va-BaP"/>

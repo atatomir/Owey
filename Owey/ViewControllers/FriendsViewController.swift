@@ -23,6 +23,8 @@ class FriendsViewController: UIViewController {
         return collectionView.frame.height
     }
     
+    private var nextAvailableTime: Date = Date()
+    
     
     // MARK: Initialization
     override func viewDidLoad() {
@@ -177,11 +179,11 @@ extension FriendsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         if let cell = cell as? FriendCell {
-            cell.updateUI()
+            cell.layoutIfNeeded()
         }
         
         if let cell = cell as? SummaryCell {
-            cell.updateUI()
+            cell.layoutIfNeeded()
         }
     }
 

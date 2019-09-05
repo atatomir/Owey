@@ -30,6 +30,7 @@ class FriendDetailsViewController: UIViewController {
     @IBOutlet var background: UIView!
     @IBOutlet var deleteButton: UIButton!
     @IBOutlet var separationLine: UIView!
+    @IBOutlet var shadowView: UIView!
     
     // MARK: Properties
     var friendData: FriendData?
@@ -94,6 +95,7 @@ class FriendDetailsViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         updateUI()
+        shadowView.addShadow(radius: 20)
     }
     
     func updateUI() {
