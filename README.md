@@ -1,5 +1,5 @@
 # Owey
-Owey is a simple iOS app that keeps track of all expenses shared with your friends. 
+Owey is a simple iOS app that keeps track of expenses shared with your friends. 
 It is great for students, roommates, couples, groups and anybody who wants to avoid disputes over the bill.
 
 
