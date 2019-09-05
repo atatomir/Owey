@@ -44,7 +44,7 @@ class TransactionCell: UITableViewCell {
             picture.image = friend.image
             titleLabel.text = transaction.note
             infoLabel.text = transaction.currency.rawValue + String(transaction.value) + " " + transaction.kind.rawValue.lowercased() + " " + friend.name
-            dateLabel.text = transaction.date.toString(format: "hh:mm")
+            dateLabel.text = transaction.date.toString(format: "HH:mm")
             
             if transaction.kind == .from {
                 infoLabel.textColor = ColorManager.greenTextOnGrey
