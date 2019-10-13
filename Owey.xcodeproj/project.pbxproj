@@ -18,6 +18,7 @@
 		F44708A6231FA6D500A3BDE5 /* CurrencyPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44708A5231FA6D500A3BDE5 /* CurrencyPickerController.swift */; };
 		F44708A8231FE25900A3BDE5 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44708A7231FE25900A3BDE5 /* UIView+Gradient.swift */; };
 		F44708AA2320F21C00A3BDE5 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44708A92320F21C00A3BDE5 /* UIView+Shadow.swift */; };
+		F45836DC2353AB1E001DC8C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45836DB2353AB1E001DC8C9 /* SceneDelegate.swift */; };
 		F46A5AEB231E74D700BD6513 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A5AE9231E74D700BD6513 /* Transaction+CoreDataProperties.swift */; };
 		F46A5AEC231E74D700BD6513 /* Friend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A5AEA231E74D700BD6513 /* Friend+CoreDataProperties.swift */; };
 		F46A5AEF231E8E0200BD6513 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A5AEE231E8E0200BD6513 /* Observer.swift */; };
@@ -54,6 +55,7 @@
 		F44708A5231FA6D500A3BDE5 /* CurrencyPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPickerController.swift; sourceTree = "<group>"; };
 		F44708A7231FE25900A3BDE5 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		F44708A92320F21C00A3BDE5 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		F45836DB2353AB1E001DC8C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F46A5AE9231E74D700BD6513 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F46A5AEA231E74D700BD6513 /* Friend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F46A5AEE231E8E0200BD6513 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		F4781A0623093944004C8FF3 /* FriendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendData.swift; sourceTree = "<group>"; };
 		F4781A13230952ED004C8FF3 /* Friend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F4781A172309683C004C8FF3 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		F49AF6192353A01C00F382BF /* Owey.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Owey.entitlements; sourceTree = "<group>"; };
 		F4B224DA2309E974003E5611 /* UIRoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRoundedImageView.swift; sourceTree = "<group>"; };
 		F4B224DD2309E9BF003E5611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Transaction.storyboard; sourceTree = "<group>"; };
 		F4B224E02309EB86003E5611 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 		F47819DE2308135F004C8FF3 /* Owey */ = {
 			isa = PBXGroup;
 			children = (
+				F49AF6192353A01C00F382BF /* Owey.entitlements */,
 				F4781A0C23095109004C8FF3 /* CoreData */,
 				F4781A0523093932004C8FF3 /* Model */,
 				F47819FB230829EA004C8FF3 /* ViewControllers */,
@@ -126,6 +130,7 @@
 				F4B224E52309EBB1003E5611 /* Storyboards */,
 				F46A5AED231E8DDE00BD6513 /* Others */,
 				F47819DF2308135F004C8FF3 /* AppDelegate.swift */,
+				F45836DB2353AB1E001DC8C9 /* SceneDelegate.swift */,
 				F47819EB23081360004C8FF3 /* Assets.xcassets */,
 				F47819F023081360004C8FF3 /* Info.plist */,
 				F47819E82308135F004C8FF3 /* Owey.xcdatamodeld */,
@@ -281,6 +286,7 @@
 				F4B224E32309EB86003E5611 /* Transaction+CoreDataClass.swift in Sources */,
 				F4154B40230A82DA005C163C /* TransactionListViewController.swift in Sources */,
 				F46A5AEC231E74D700BD6513 /* Friend+CoreDataProperties.swift in Sources */,
+				F45836DC2353AB1E001DC8C9 /* SceneDelegate.swift in Sources */,
 				F44708A4231F981300A3BDE5 /* Date+ToString.swift in Sources */,
 				F46A5AEB231E74D700BD6513 /* Transaction+CoreDataProperties.swift in Sources */,
 				F4781A15230952ED004C8FF3 /* Friend+CoreDataClass.swift in Sources */,
@@ -456,16 +462,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Owey/Owey.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3G4XG28SQ;
 				INFOPLIST_FILE = Owey/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.atatomir.Owey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -475,16 +483,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Owey/Owey.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3G4XG28SQ;
 				INFOPLIST_FILE = Owey/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.atatomir.Owey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

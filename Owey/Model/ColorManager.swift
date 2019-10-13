@@ -23,4 +23,6 @@ class ColorManager {
     static let settledColor = UIColor(red: 227.0 / 255, green: 181.0 / 255, blue: 5.0 / 255, alpha: 1)
     
     static let iconColor = UIColor(red: 114.0 / 255, green: 199.0 / 255, blue: 92.0 / 255, alpha: 1)
+    
+    static let barsColors = UIColor(red: 44.0 / 255, green: 87.0 / 255, blue: 132.0 / 255, alpha: 1)
 }
